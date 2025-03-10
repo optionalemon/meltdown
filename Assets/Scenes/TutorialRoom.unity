@@ -2073,6 +2073,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967567311}
   m_CullTransparentMesh: 0
+--- !u!1 &992676629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4605930200360100831, guid: d08c601b1bb4547fc9ec7b06d3fbc03a, type: 3}
+  m_PrefabInstance: {fileID: 2678897044619641745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1021619523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,6 +4963,10 @@ PrefabInstance:
       propertyPath: closeButton
       value: 
       objectReference: {fileID: 836604869}
+    - target: {fileID: 4327608011217596563, guid: d08c601b1bb4547fc9ec7b06d3fbc03a, type: 3}
+      propertyPath: highlightObject
+      value: 
+      objectReference: {fileID: 992676629}
     - target: {fileID: 7517372002410839505, guid: d08c601b1bb4547fc9ec7b06d3fbc03a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5
