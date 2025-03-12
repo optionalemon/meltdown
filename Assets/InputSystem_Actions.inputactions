@@ -87,18 +87,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RightTriggerToViewPoster",
+                    "name": "TriggerToViewPoster",
                     "type": "Button",
                     "id": "4c69ff71-76d4-45b9-bafa-8f63152052a4",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LeftTriggerToViewPoster",
-                    "type": "Button",
-                    "id": "5933a524-5d1a-4b96-9fa4-908d88d8e992",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -399,18 +390,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RightTriggerToViewPoster",
+                    "action": "TriggerToViewPoster",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "141884f4-0c2e-4236-a8bc-81b3c7c0b8a1",
+                    "id": "f90335f4-bf54-4017-8737-55229bfb8937",
                     "path": "<XRController>{LeftHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LeftTriggerToViewPoster",
+                    "action": "TriggerToViewPoster",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
