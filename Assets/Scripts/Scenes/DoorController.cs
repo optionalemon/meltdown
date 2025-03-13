@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class DoorController : MonoBehaviour
@@ -8,6 +9,8 @@ public class DoorController : MonoBehaviour
     [SerializeField] private TeleportationType teleportType;
     [SerializeField] private GameObject ConfirmAlertDialog;
     [SerializeField] private ConfirmationModal confirmationModal;
+
+    public InputActionReference triggerAction;
 
     public enum TeleportationType
     {
@@ -20,34 +23,50 @@ public class DoorController : MonoBehaviour
     void Awake()
     {
         // Get reference to XR Simple Interactable
-        if (interactable == null) {
+        if (interactable == null)
+        {
             interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         }
 
         // Subscribe to the select event (trigger press)
-        interactable.selectEntered.AddListener(OnTriggerPressed);
+        // interactable.selectEntered.AddListener(OnTriggerPressed);
 
         if (confirmationModal != null)
         {
             confirmationModal.onConfirm.AddListener(TeleportToSelectedScene);
         }
-        
+
         if (ConfirmAlertDialog != null)
         {
             ConfirmAlertDialog.SetActive(false);
         }
     }
 
-    private void OnTriggerPressed(SelectEnterEventArgs args)
+    // private void OnTriggerPressed(SelectEnterEventArgs args)
+    // {
+    //     // Action when trigger is pressed
+    //     if (isOpen)
+    //     {
+    //         if (ConfirmAlertDialog != null)
+    //         {
+    //             ConfirmAlertDialog.SetActive(true);
+    //         }
+    //     }
+
+    // }
+
+    void Update()
     {
-        // Action when trigger is pressed
-        if (isOpen) {
-            if (ConfirmAlertDialog != null)
+        if (triggerAction.action.triggered)
+        {
+            if (isOpen)
             {
-                ConfirmAlertDialog.SetActive(true);
+                if (ConfirmAlertDialog != null)
+                {
+                    ConfirmAlertDialog.SetActive(true);
+                }
             }
         }
-        
     }
 
     private void OnDestroy()
@@ -55,7 +74,7 @@ public class DoorController : MonoBehaviour
         if (interactable != null)
         {
             // Unsubscribe to prevent memory leaks
-            interactable.selectEntered.RemoveListener(OnTriggerPressed);
+            // interactable.selectEntered.RemoveListener(OnTriggerPressed);
         }
     }
 
@@ -67,7 +86,7 @@ public class DoorController : MonoBehaviour
             Debug.LogError("SceneNavigator instance not found!");
             return;
         }
-        
+
         // Call the appropriate method based on selected teleport type
         switch (teleportType)
         {

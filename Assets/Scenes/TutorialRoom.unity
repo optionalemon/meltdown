@@ -4566,6 +4566,7 @@ MonoBehaviour:
   teleportType: 0
   ConfirmAlertDialog: {fileID: 478632849}
   confirmationModal: {fileID: 478632857}
+  triggerAction: {fileID: -3349846813110206475, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &1740969850
 GameObject:
   m_ObjectHideFlags: 0

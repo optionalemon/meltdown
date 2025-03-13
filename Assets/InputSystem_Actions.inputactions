@@ -87,7 +87,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TriggerToViewPoster",
+                    "name": "TriggerWithBothControllers",
                     "type": "Button",
                     "id": "4c69ff71-76d4-45b9-bafa-8f63152052a4",
                     "expectedControlType": "",
@@ -390,7 +390,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TriggerToViewPoster",
+                    "action": "TriggerWithBothControllers",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -401,7 +401,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TriggerToViewPoster",
+                    "action": "TriggerWithBothControllers",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

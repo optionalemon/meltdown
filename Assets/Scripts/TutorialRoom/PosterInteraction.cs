@@ -18,6 +18,7 @@ public class PosterInteraction : MonoBehaviour
 
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor interactor; // Reference to XR Interactor
 
+    private bool isHovered = false;
     void Start()
     {
         if (interactable == null)
@@ -29,7 +30,7 @@ public class PosterInteraction : MonoBehaviour
         {
             interactable.hoverEntered.AddListener(OnHoverEntered);
             interactable.hoverExited.AddListener(OnHoverExited);
-            interactable.selectEntered.AddListener(OnTriggerPressed);
+            // interactable.selectEntered.AddListener(OnTriggerPressed);
         }
         else
         {
@@ -54,6 +55,7 @@ public class PosterInteraction : MonoBehaviour
     {
         if (highlightObject != null) highlightObject.SetActive(true);
 
+        isHovered = true;
         interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor;
         if (interactor != null) TriggerHapticFeedback(interactor, hoverHapticIntensity);
     }
@@ -61,16 +63,28 @@ public class PosterInteraction : MonoBehaviour
     private void OnHoverExited(HoverExitEventArgs args)
     {
         if (highlightObject != null) highlightObject.SetActive(false);
+        isHovered = false;
     }
 
-    private void OnTriggerPressed(SelectEnterEventArgs args)
+    // private void OnTriggerPressed(SelectEnterEventArgs args)
+    // {
+
+    //     if (overlay != null) overlay.SetActive(true);
+
+    //     interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor;
+    //     if (interactor != null) TriggerHapticFeedback(interactor, clickHapticIntensity);
+
+    // }
+
+    void Update()
     {
-
-        if (overlay != null) overlay.SetActive(true);
-
-        interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor;
-        if (interactor != null) TriggerHapticFeedback(interactor, clickHapticIntensity);
-
+        if (isHovered && triggerAction.action.triggered)
+        {
+            if (overlay != null)
+            {
+                overlay.SetActive(true);
+            }
+        }
     }
 
     private void TriggerHapticFeedback(UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor interactor, float intensity)
