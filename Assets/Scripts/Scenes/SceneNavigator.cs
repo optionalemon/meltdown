@@ -1,6 +1,7 @@
 using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SceneNavigator : MonoBehaviour
 {
@@ -54,7 +55,26 @@ public class SceneNavigator : MonoBehaviour
     // Helper method to load a scene
     private void LoadScene(SceneReference sceneRef)
     {
-        // You could add transition effects, loading screens, etc. here
-        SceneManager.LoadScene(sceneRef.BuildIndex);
+        // Start an asynchronous scene load
+        StartCoroutine(LoadSceneWithEvents(sceneRef));
+    }
+
+    private IEnumerator LoadSceneWithEvents(SceneReference sceneRef)
+    {
+        // Begin loading the scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneRef.BuildIndex);
+        
+        // Wait until the scene is fully loaded
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        
+        // Scene is loaded, now check which scene it was and perform scene-specific actions
+        if (sceneRef == supermarketScene)
+        {
+            // Play the supermarket announcement
+            FindObjectOfType<SoundManager>().PlaySound(SoundType.SUPERMARKET_ANNOUCEMENT);
+        }
     }
 }

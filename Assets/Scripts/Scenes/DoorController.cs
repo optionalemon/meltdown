@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 public class DoorController : MonoBehaviour
 {
@@ -28,9 +29,6 @@ public class DoorController : MonoBehaviour
             interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         }
 
-        // Subscribe to the select event (trigger press)
-        // interactable.selectEntered.AddListener(OnTriggerPressed);
-
         if (confirmationModal != null)
         {
             confirmationModal.onConfirm.AddListener(TeleportToSelectedScene);
@@ -41,19 +39,6 @@ public class DoorController : MonoBehaviour
             ConfirmAlertDialog.SetActive(false);
         }
     }
-
-    // private void OnTriggerPressed(SelectEnterEventArgs args)
-    // {
-    //     // Action when trigger is pressed
-    //     if (isOpen)
-    //     {
-    //         if (ConfirmAlertDialog != null)
-    //         {
-    //             ConfirmAlertDialog.SetActive(true);
-    //         }
-    //     }
-
-    // }
 
     void Update()
     {
@@ -69,22 +54,25 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        if (interactable != null)
-        {
-            // Unsubscribe to prevent memory leaks
-            // interactable.selectEntered.RemoveListener(OnTriggerPressed);
-        }
-    }
-
     private void TeleportToSelectedScene()
     {
+        // Start coroutine for sound and teleportation
+        StartCoroutine(PlaySoundAndTeleport());
+    }
+
+    private IEnumerator PlaySoundAndTeleport()
+    {
+        // First, play the door open sound
+        FindObjectOfType<SoundManager>().PlaySound(SoundType.DOOR_OPEN);
+        
+        // Optional: Wait a short time to let the sound play
+        yield return new WaitForSeconds(0.5f);
+        
         // Make sure SceneNavigator singleton exists
         if (SceneNavigator.Instance == null)
         {
             Debug.LogError("SceneNavigator instance not found!");
-            return;
+            yield break;
         }
 
         // Call the appropriate method based on selected teleport type
