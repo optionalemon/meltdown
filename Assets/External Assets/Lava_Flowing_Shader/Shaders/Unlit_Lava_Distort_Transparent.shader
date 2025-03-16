@@ -15,7 +15,7 @@ Category {
 	//Tags { "RenderType"="Opaque" }
 	Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
 	Blend SrcAlpha OneMinusSrcAlpha
-	Cull back Lighting Off ZWrite Off
+	Cull off Lighting Off ZWrite On
 	
 	SubShader {
 		Pass {
