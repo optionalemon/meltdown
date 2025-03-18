@@ -143,10 +143,21 @@ public class Scanner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Quaternion.Euler(0, -90, 0) * transform.forward, out hit, scanDistance, foodLayer))
         {
+            if (currentTarget != hit.collider.gameObject)
+            {
+                if (currentTarget != null)
+                {
+                    StopScanning();
+                }
+            }
             currentTarget = hit.collider.gameObject;
         }
         else
         {
+            if (currentTarget != null)
+            {
+                StopScanning();
+            }
             currentTarget = null;
         }
     }
@@ -176,5 +187,21 @@ public class Scanner : MonoBehaviour
     public void StopScanning()
     {
         scanningParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        // If we have a valid food item target
+        if (currentTarget != null)
+        {
+            // Try to get ScanableFood component from hit object or its parents
+            ScanableFood scanableFood = currentTarget.GetComponent<ScanableFood>();
+            if (scanableFood == null)
+            {
+                scanableFood = currentTarget.GetComponentInParent<ScanableFood>();
+            }
+            
+            // If we found a scanable food, tell it to start scanning
+            if (scanableFood != null)
+            {
+                scanableFood.StopScan();
+            }
+        }
     }
 }
