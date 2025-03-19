@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
@@ -6,6 +7,7 @@ public class SubtitleDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI subtitleText;
     [SerializeField] private GameObject subtitlePanel;
+    [SerializeField] private Image subtitleBackground;
     
     [System.Serializable]
     public class SubtitleLine
@@ -16,6 +18,7 @@ public class SubtitleDisplay : MonoBehaviour
     }
     
     [SerializeField] private SubtitleLine[] subtitleLines;
+    
     
     private void Awake()
     {
@@ -36,32 +39,59 @@ public class SubtitleDisplay : MonoBehaviour
         // Hide panel initially
         if (subtitlePanel)
             subtitlePanel.SetActive(false);
+
+
+        ApplyTextStyling();        
     }
     
     private void Start()
     {
-        // Position in front of camera
-        PositionInFrontOfCamera();
+        // // Position in front of camera
+        // PositionInFrontOfCamera();
+    }
+
+    private void LateUpdate()
+    {
+        FollowUserGaze();
+    }
+
+    private void FollowUserGaze()
+    {
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            // Calculate forward and downward offset
+            Vector3 forward = mainCamera.transform.forward;
+            Vector3 down = -mainCamera.transform.up;
+            
+            // Position the subtitle slightly in front and below the user's gaze
+            float distanceFromUser = 1.4f;
+            float verticalOffset = -0.05f;
+            transform.position = mainCamera.transform.position + forward * distanceFromUser + down * verticalOffset;
+            
+            // Make the subtitle face the camera (billboarding effect)
+            transform.rotation = Quaternion.LookRotation(transform.position - mainCamera.transform.position);
+        }
     }
     
-private void PositionInFrontOfCamera()
-{
-    Camera mainCamera = Camera.main;
-    if (mainCamera != null)
-    {
-        // Calculate forward and down vectors
-        Vector3 forward = mainCamera.transform.forward;
-        Vector3 down = -mainCamera.transform.up;
+// private void PositionInFrontOfCamera()
+// {
+//     Camera mainCamera = Camera.main;
+//     if (mainCamera != null)
+//     {
+//         // Calculate forward and down vectors
+//         Vector3 forward = mainCamera.transform.forward;
+//         Vector3 down = -mainCamera.transform.up;
         
-        // Position canvas forward and downward from the camera
-        // The 2f is the forward distance, 0.5f is the downward offset (adjust as needed)
-        transform.position = mainCamera.transform.position + forward * 2f + down * 0.5f;
+//         // Position canvas forward and downward from the camera
+//         // The 2f is the forward distance, 0.5f is the downward offset (adjust as needed)
+//         transform.position = mainCamera.transform.position + forward * 2f + down * 0.5f;
         
-        // Make the canvas face the camera
-        transform.rotation = Quaternion.LookRotation(
-            mainCamera.transform.position - transform.position);
-    }
-}
+//         // Make the canvas face the camera
+//         transform.rotation = Quaternion.LookRotation(
+//             mainCamera.transform.position - transform.position);
+//     }
+// }
     
     public void ShowSubtitles()
     {
@@ -77,6 +107,7 @@ private void PositionInFrontOfCamera()
         }
 
         subtitlePanel.SetActive(true);
+        subtitleBackground.gameObject.SetActive(true);
         
         foreach (SubtitleLine line in subtitleLines)
         {
@@ -109,5 +140,29 @@ private void PositionInFrontOfCamera()
         
         // Hide the panel when done
         subtitlePanel.SetActive(false);
+        subtitleBackground.gameObject.SetActive(false);
+    }
+    private void ApplyTextStyling()
+    {
+        if (subtitleText == null)
+        {
+            Debug.LogError("SubtitleText component is not assigned!");
+            return;
+        }
+
+        subtitleText.fontSize = 36f; 
+        subtitleText.color = Color.white;
+        subtitleText.fontStyle = FontStyles.Bold;
+        subtitleText.outlineWidth = 0.2f; 
+        subtitleText.outlineColor = Color.black;
+        subtitleText.alignment = TextAlignmentOptions.Center;
+       if (subtitleBackground != null)
+            {
+                subtitleBackground.color = new Color(0, 0, 0, 0.5f);
+            }
+            else
+            {
+                Debug.LogWarning("SubtitleBackground is not assigned!");
+            }
     }
 }
