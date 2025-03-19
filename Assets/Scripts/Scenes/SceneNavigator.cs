@@ -90,6 +90,10 @@ public class SceneNavigator : MonoBehaviour {
             
             // Now start the background music with fade in
             SoundManager.Instance.PlayBackgroundMusic(SoundType.SUPERMARKET_MUSIC, true);
+        } else if (sceneRef == disasterRoomScene) {
+             SoundManager.Instance.StopBackgroundMusic(true);
+            // Now start the background music with fade in
+            SoundManager.Instance.PlayBackgroundMusic(SoundType.DISASTER_MUSIC, true);
         }
         else {
             // Clean up subtitle canvas if we're leaving the supermarket

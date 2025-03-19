@@ -6,7 +6,8 @@ public enum SoundType {
     SUPERMARKET_ANNOUCEMENT, 
     SUPERMARKET_MUSIC, 
     SUPERMARKET_SCANNER,
-    BUTTON_CLICK 
+    CORRECT_ITEM_PLACED,
+    DISASTER_MUSIC 
 }
 
 [RequireComponent(typeof(AudioSource))]
