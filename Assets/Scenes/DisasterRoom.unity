@@ -578,6 +578,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: I'm ready to go back
       objectReference: {fileID: 0}
+    - target: {fileID: 8503936499194532900, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d6f3376af8c75451eb563b9e2c3a8606, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 781630663273105847, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
@@ -967,6 +971,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Are you sure?
       objectReference: {fileID: 0}
+    - target: {fileID: 8503936499194532900, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d6f3376af8c75451eb563b9e2c3a8606, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 781630663273105847, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
@@ -1128,8 +1136,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The year is 2050
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a3d28269451ef4e039274678e97128bc, type: 2}
+  m_sharedMaterial: {fileID: 3375853729310949523, guid: a3d28269451ef4e039274678e97128bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2330,6 +2338,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: You are a menace to society lol
       objectReference: {fileID: 0}
+    - target: {fileID: 5849765080698951394, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d6f3376af8c75451eb563b9e2c3a8606, type: 3}
     - target: {fileID: 5849765080850205986, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2457,6 +2469,10 @@ PrefabInstance:
         Cheers
         babe.'
       objectReference: {fileID: 0}
+    - target: {fileID: 8881028038475493880, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d6f3376af8c75451eb563b9e2c3a8606, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8180815009888545692, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
