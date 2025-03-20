@@ -6278,7 +6278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1070764554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7555,22 +7555,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 611465820}
     m_Modifications:
-    - target: {fileID: 5087592107415244696, guid: 833cb867d186193418fc107735ae3139, type: 3}
-      propertyPath: m_Renderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6335824964581851821, guid: 833cb867d186193418fc107735ae3139, type: 3}
-      propertyPath: m_InteractableSource
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128330710180914111, guid: 833cb867d186193418fc107735ae3139, type: 3}
-      propertyPath: m_Name
-      value: Tomato (Pretty)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128330710180914111, guid: 833cb867d186193418fc107735ae3139, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4164222508261582693, guid: 833cb867d186193418fc107735ae3139, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.18685088
@@ -7623,9 +7607,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5087592107415244696, guid: 833cb867d186193418fc107735ae3139, type: 3}
+      propertyPath: m_Renderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335824964581851821, guid: 833cb867d186193418fc107735ae3139, type: 3}
+      propertyPath: m_InteractableSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7128330710180914111, guid: 833cb867d186193418fc107735ae3139, type: 3}
       propertyPath: m_Name
       value: Tomato (Pretty)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128330710180914111, guid: 833cb867d186193418fc107735ae3139, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7412282423217794750, guid: 6e011445eacb66d44917ee533cd703ac, type: 3}
       propertyPath: m_Layer
@@ -9617,7 +9613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1718868830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10407,8 +10403,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.44297802, y: 0.8275728, z: 0.77932936}
-  m_Center: {x: -0.19150418, y: 0.31169257, z: 0.28248394}
+  m_Size: {x: 0.44297796, y: 0.706961, z: 0.678615}
+  m_Center: {x: -0.19150417, y: 0.35948354, z: 0.23212673}
 --- !u!1001 &1876873491
 PrefabInstance:
   m_ObjectHideFlags: 0
