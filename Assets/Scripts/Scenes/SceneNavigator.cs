@@ -2,10 +2,10 @@ using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SceneNavigator : MonoBehaviour
 {
-    // Scene references
     [SerializeField] private SceneReference supermarketScene;
     [SerializeField] private SceneReference kitchenScene;
     [SerializeField] private SceneReference tutorialRoomScene;
@@ -15,31 +15,27 @@ public class SceneNavigator : MonoBehaviour
     public static string DISASTER_EVENT_TYPE;
 
     private GameObject currentSubtitleCanvas;
-
-    // Singleton pattern to access the navigator from any scene
-    private static SceneNavigator instance;
-
-    // Track current scene to handle music transitions properly
     private SceneReference currentScene;
 
-    public static SceneNavigator Instance
-    {
-        get { return instance; }
-    }
+    private static SceneNavigator instance;
+    public static SceneNavigator Instance => instance;
+
+    // Persistent food state
+    private static HashSet<string> thrownFoodNames = new HashSet<string>();
+    private static bool isAnnouncementPlayed;
 
     private void Awake()
     {
-        // Implement singleton pattern
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
+
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    // Methods to navigate between scenes
     public void GoToSupermarket()
     {
         LoadScene(supermarketScene);
@@ -61,75 +57,59 @@ public class SceneNavigator : MonoBehaviour
         LoadScene(disasterRoomScene);
     }
 
-    // Helper method to load a scene
+    public bool HasFoodBeenThrown(string foodName)
+    {
+        return thrownFoodNames.Contains(foodName);
+    }
+
+    public void MarkFoodAsThrown(string foodName)
+    {
+        thrownFoodNames.Add(foodName);
+    }
+
     private void LoadScene(SceneReference sceneRef)
     {
-        // Update current scene
         currentScene = sceneRef;
-
-        // Start an asynchronous scene load
         StartCoroutine(LoadSceneWithEvents(sceneRef));
     }
 
     private IEnumerator LoadSceneWithEvents(SceneReference sceneRef)
     {
-        // Begin loading the scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneRef.BuildIndex);
+        while (!asyncLoad.isDone) yield return null;
 
-        // Wait until the scene is fully loaded
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        // Scene is loaded, now check which scene it was and perform scene-specific actions
         if (sceneRef == supermarketScene)
         {
             SoundManager.Instance.StopBackgroundMusic(true);
 
-            currentSubtitleCanvas = Instantiate(subtitleCanvasPrefab);
+            if (!isAnnouncementPlayed) {
+                isAnnouncementPlayed = true;
+                currentSubtitleCanvas = Instantiate(subtitleCanvasPrefab);
 
-            // Get reference to the subtitle component on the canvas
-            SubtitleDisplay subtitleDisplay = currentSubtitleCanvas.GetComponent<SubtitleDisplay>();
+                var subtitleDisplay = currentSubtitleCanvas.GetComponent<SubtitleDisplay>();
+                SoundManager.Instance.PlaySound(SoundType.SUPERMARKET_ANNOUCEMENT);
+                subtitleDisplay?.ShowSubtitles();
 
-            // Play the supermarket announcement
-            SoundManager.Instance.PlaySound(SoundType.SUPERMARKET_ANNOUCEMENT);
-
-            if (subtitleDisplay != null)
-            {
-                subtitleDisplay.ShowSubtitles();
+                AudioClip announcementClip = SoundManager.Instance.GetSoundClip(SoundType.SUPERMARKET_ANNOUCEMENT);
+                if (announcementClip != null)
+                    yield return new WaitForSeconds(announcementClip.length + 0.5f);
             }
-
-            // Wait for the announcement to finish before starting background music
-            AudioClip announcementClip = SoundManager.Instance.GetSoundClip(SoundType.SUPERMARKET_ANNOUCEMENT);
-            if (announcementClip != null)
-            {
-                yield return new WaitForSeconds(announcementClip.length + 0.5f); // Add a small delay
-            }
-
-            // Now start the background music with fade in
             SoundManager.Instance.PlayBackgroundMusic(SoundType.SUPERMARKET_MUSIC, true);
         }
         else if (sceneRef == disasterRoomScene)
         {
             SoundManager.Instance.StopBackgroundMusic(true);
-            // Now start the background music with fade in
             SoundManager.Instance.PlayBackgroundMusic(SoundType.DISASTER_MUSIC, true);
         }
         else
         {
-            // Clean up subtitle canvas if we're leaving the supermarket
             if (currentSubtitleCanvas != null)
             {
                 Destroy(currentSubtitleCanvas);
                 currentSubtitleCanvas = null;
             }
 
-            // Stop background music if it's playing
-            if (SoundManager.Instance != null)
-            {
-                SoundManager.Instance.StopBackgroundMusic(true);
-            }
+            SoundManager.Instance?.StopBackgroundMusic(true);
         }
     }
 }

@@ -1,10 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.InputSystem;
-using System.Linq;
 
 public class FoodController : MonoBehaviour
 {
@@ -14,12 +10,10 @@ public class FoodController : MonoBehaviour
     [Header("References")]
     public Transform shoppingCartTransform;
     public GameObject confettiPrefab;
-
     public string eventType;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
-
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
     private Rigidbody rb;
 
@@ -30,6 +24,13 @@ public class FoodController : MonoBehaviour
 
         grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         rb = GetComponent<Rigidbody>();
+
+        // Destroy food if already thrown before
+        if (SceneNavigator.Instance != null && SceneNavigator.Instance.HasFoodBeenThrown(gameObject.name))
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         if (grabInteractable != null)
         {
@@ -42,15 +43,11 @@ public class FoodController : MonoBehaviour
         Vector3 foodPos = transform.position;
         Vector3 cartPos = shoppingCartTransform.position;
 
-        // You can define a bounding area around the cart
         float xThreshold = 0.5f;
         float zThreshold = 0.5f;
 
         bool isAboveCartXZ = Mathf.Abs(foodPos.x - cartPos.x) <= xThreshold &&
-                            Mathf.Abs(foodPos.z - cartPos.z) <= zThreshold;
-
-        // Optionally check if the food is also vertically above the cart
-        // bool isAboveInY = foodPos.y >= cartPos.y;
+                             Mathf.Abs(foodPos.z - cartPos.z) <= zThreshold;
 
         if (isAboveCartXZ)
         {
@@ -71,42 +68,28 @@ public class FoodController : MonoBehaviour
 
     private IEnumerator HandleCorrectDropSequence()
     {
-        // Play sound
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
-
-        // Spawn confetti AFTER food disappears
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
 
-        // Optional small delay to sync sound and visuals
+        // Mark this food as thrown so it stays gone next time
+        SceneNavigator.Instance?.MarkFoodAsThrown(gameObject.name);
+
         yield return new WaitForSeconds(1.0f);
-
         Destroy(confetti, 1.0f);
-
-        // Hide food
         Destroy(gameObject);
-
     }
 
     private void HandleIncorrectDrop()
     {
-        if (SceneNavigator.Instance != null)
-        {
-            SceneNavigator.Instance.GoToDisasterRoom(eventType);
-        }
-        else
-        {
-            Debug.LogWarning("SceneNavigator not found!");
-        }
+        SceneNavigator.Instance?.GoToDisasterRoom(eventType);
     }
 
     private IEnumerator ReturnToOriginalPosition()
     {
-        if (rb != null)
-            rb.isKinematic = true;
+        if (rb != null) rb.isKinematic = true;
 
         float duration = 0.3f;
         float elapsed = 0f;
-
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
 
@@ -114,10 +97,8 @@ public class FoodController : MonoBehaviour
         {
             float t = elapsed / duration;
             float smoothT = t * t * (3f - 2f * t);
-
             transform.position = Vector3.Lerp(startPos, originalPosition, smoothT);
             transform.rotation = Quaternion.Slerp(startRot, originalRotation, smoothT);
-
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -125,7 +106,6 @@ public class FoodController : MonoBehaviour
         transform.position = originalPosition;
         transform.rotation = originalRotation;
 
-        if (rb != null)
-            rb.isKinematic = false;
+        if (rb != null) rb.isKinematic = false;
     }
 }
