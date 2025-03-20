@@ -15,6 +15,8 @@ public class FoodController : MonoBehaviour
     public Transform shoppingCartTransform;
     public GameObject confettiPrefab;
 
+    public string eventType;
+
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
@@ -79,7 +81,7 @@ public class FoodController : MonoBehaviour
     {
         if (SceneNavigator.Instance != null)
         {
-            SceneNavigator.Instance.GoToDisasterRoom();
+            SceneNavigator.Instance.GoToDisasterRoom(eventType);
         }
         else
         {

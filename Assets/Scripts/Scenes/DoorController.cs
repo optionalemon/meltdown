@@ -64,10 +64,10 @@ public class DoorController : MonoBehaviour
     {
         // First, play the door open sound
         FindObjectOfType<SoundManager>().PlaySound(SoundType.DOOR_OPEN);
-        
+
         // Optional: Wait a short time to let the sound play
         yield return new WaitForSeconds(0.5f);
-        
+
         // Make sure SceneNavigator singleton exists
         if (SceneNavigator.Instance == null)
         {
@@ -88,7 +88,7 @@ public class DoorController : MonoBehaviour
                 SceneNavigator.Instance.GoToTutorialRoom();
                 break;
             case TeleportationType.DisasterRoom:
-                SceneNavigator.Instance.GoToDisasterRoom();
+                SceneNavigator.Instance.GoToDisasterRoom("");
                 break;
         }
     }

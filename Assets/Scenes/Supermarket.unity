@@ -4620,6 +4620,7 @@ MonoBehaviour:
   isCorrectFood: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &546651587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5823,6 +5824,7 @@ MonoBehaviour:
   isCorrectFood: 0
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &780733605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7188,6 +7190,7 @@ MonoBehaviour:
   isCorrectFood: 0
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &911592604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9035,6 +9038,7 @@ MonoBehaviour:
   isCorrectFood: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &1179831560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12362,6 +12366,7 @@ MonoBehaviour:
   isCorrectFood: 0
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &1659567288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12880,6 +12885,7 @@ MonoBehaviour:
   isCorrectFood: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!1 &1713063182
 GameObject:
   m_ObjectHideFlags: 0
@@ -12933,6 +12939,7 @@ MonoBehaviour:
   isCorrectFood: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &1713063185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13321,6 +13328,7 @@ MonoBehaviour:
   isCorrectFood: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: 
 --- !u!114 &1791079757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14950,6 +14958,7 @@ MonoBehaviour:
   isCorrectFood: 0
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
+  eventType: WRONG_TOMATO
 --- !u!114 &2000798889
 MonoBehaviour:
   m_ObjectHideFlags: 0
