@@ -39,10 +39,20 @@ public class FoodController : MonoBehaviour
 
     private void OnSelectExit(SelectExitEventArgs args)
     {
-        float distanceToCart = Vector3.Distance(transform.position, shoppingCartTransform.position);
-        float dropThreshold = 1.0f;
+        Vector3 foodPos = transform.position;
+        Vector3 cartPos = shoppingCartTransform.position;
 
-        if (distanceToCart <= dropThreshold)
+        // You can define a bounding area around the cart
+        float xThreshold = 0.5f;
+        float zThreshold = 0.5f;
+
+        bool isAboveCartXZ = Mathf.Abs(foodPos.x - cartPos.x) <= xThreshold &&
+                            Mathf.Abs(foodPos.z - cartPos.z) <= zThreshold;
+
+        // Optionally check if the food is also vertically above the cart
+        // bool isAboveInY = foodPos.y >= cartPos.y;
+
+        if (isAboveCartXZ)
         {
             if (isCorrectFood)
             {
