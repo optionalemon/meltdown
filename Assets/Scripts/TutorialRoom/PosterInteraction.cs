@@ -18,6 +18,7 @@ public class PosterInteraction : MonoBehaviour
 
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor interactor; // Reference to XR Interactor
 
+    private PosterOverlayManager overlayManager;
     private bool isHovered = false;
     void Start()
     {
@@ -49,6 +50,8 @@ public class PosterInteraction : MonoBehaviour
         // Hide highlight and overlay at start
         if (highlightObject != null) highlightObject.SetActive(false);
         if (overlay != null) overlay.SetActive(false);
+
+        overlayManager = FindObjectOfType<PosterOverlayManager>();
     }
 
     private void OnHoverEntered(HoverEnterEventArgs args)
@@ -80,6 +83,12 @@ public class PosterInteraction : MonoBehaviour
     {
         if (isHovered && triggerAction.action.triggered)
         {
+            if (overlayManager != null)
+            {
+                overlayManager.HideAllOverlays();
+            }
+
+
             if (overlay != null)
             {
                 overlay.SetActive(true);
