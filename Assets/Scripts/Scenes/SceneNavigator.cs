@@ -4,6 +4,21 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
+public enum FoodItem
+{
+    Tomatoes,
+    Milk,
+    Meat,
+    Eggs
+}
+
+public enum FoodStatus
+{
+    NotDone,           // User hasn't interacted with this food yet
+    WrongChoiceChosen, // User made an incorrect choice with this food
+    RightChoiceChosen  // User made the correct choice with this food
+}
+
 public class SceneNavigator : MonoBehaviour
 {
     [SerializeField] private SceneReference supermarketScene;
@@ -20,8 +35,15 @@ public class SceneNavigator : MonoBehaviour
     private static SceneNavigator instance;
     public static SceneNavigator Instance => instance;
 
-    // Persistent food state
-    private static HashSet<string> thrownFoodNames = new HashSet<string>();
+        // Persistent food state using enums
+    private static Dictionary<FoodItem, FoodStatus> foodStatusDict = new Dictionary<FoodItem, FoodStatus>()
+    {
+        { FoodItem.Tomatoes, FoodStatus.NotDone },
+        { FoodItem.Milk, FoodStatus.NotDone },
+        { FoodItem.Meat, FoodStatus.NotDone },
+        { FoodItem.Eggs, FoodStatus.NotDone }
+    };
+
     private static bool isAnnouncementPlayed;
 
     private void Awake()
@@ -57,14 +79,30 @@ public class SceneNavigator : MonoBehaviour
         LoadScene(disasterRoomScene);
     }
 
-    public bool HasFoodBeenThrown(string foodName)
+    public FoodStatus GetFoodStatus(FoodItem food)
     {
-        return thrownFoodNames.Contains(foodName);
+        return foodStatusDict[food];
     }
 
-    public void MarkFoodAsThrown(string foodName)
+    public void SetFoodStatus(FoodItem food, FoodStatus status)
     {
-        thrownFoodNames.Add(foodName);
+        Debug.Log($"Setting food {food} status to {status}");
+        foodStatusDict[food] = status;
+    }
+
+    public bool IsFoodChoiceCorrect(FoodItem food)
+    {
+        return foodStatusDict[food] == FoodStatus.RightChoiceChosen;
+    }
+
+    public bool IsFoodChoiceWrong(FoodItem food)
+    {
+        return foodStatusDict[food] == FoodStatus.WrongChoiceChosen;
+    }
+
+    public bool HasFoodBeenProcessed(FoodItem food)
+    {
+        return foodStatusDict[food] != FoodStatus.NotDone;
     }
 
     private void LoadScene(SceneReference sceneRef)
@@ -99,6 +137,7 @@ public class SceneNavigator : MonoBehaviour
         else if (sceneRef == disasterRoomScene)
         {
             SoundManager.Instance.StopBackgroundMusic(true);
+            SoundManager.Instance.StopSound();
             SoundManager.Instance.PlayBackgroundMusic(SoundType.DISASTER_MUSIC, true);
         }
         else

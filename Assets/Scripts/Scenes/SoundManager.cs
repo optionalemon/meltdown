@@ -51,6 +51,10 @@ public class SoundManager : MonoBehaviour {
     public void PlaySound(SoundType soundType, float volume = 1f) {
         sfxAudioSource.PlayOneShot(soundList[(int)soundType], volume);
     }
+
+    public void StopSound() {
+        sfxAudioSource.Stop();
+    }
     
     public void PlayBackgroundMusic(SoundType soundType, bool fadeIn = true) {
         AudioClip musicClip = soundList[(int)soundType];
@@ -79,7 +83,7 @@ public class SoundManager : MonoBehaviour {
     public void StopBackgroundMusic(bool fadeOut = true) {
         if (!bgmAudioSource.isPlaying)
             return;
-            
+        
         // Stop any current fade
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);

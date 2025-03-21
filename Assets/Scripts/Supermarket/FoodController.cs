@@ -6,6 +6,7 @@ public class FoodController : MonoBehaviour
 {
     [Header("Food Properties")]
     public bool isCorrectFood;
+    public FoodItem foodType;
 
     [Header("References")]
     public Transform shoppingCartTransform;
@@ -16,6 +17,7 @@ public class FoodController : MonoBehaviour
     private Quaternion originalRotation;
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
     private Rigidbody rb;
+    private Collider[] colliders;
 
     void Awake()
     {
@@ -24,17 +26,66 @@ public class FoodController : MonoBehaviour
 
         grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         rb = GetComponent<Rigidbody>();
+        colliders = GetComponentsInChildren<Collider>();
 
-        // Destroy food if already thrown before
-        if (SceneNavigator.Instance != null && SceneNavigator.Instance.HasFoodBeenThrown(gameObject.name))
+        // Check current food status
+        if (SceneNavigator.Instance != null)
         {
-            Destroy(gameObject);
-            return;
+            FoodStatus status = SceneNavigator.Instance.GetFoodStatus(foodType);
+            Debug.Log($"Food {foodType} status: {status}");
+            
+            if (status == FoodStatus.RightChoiceChosen)
+            {
+                if (!isCorrectFood)
+                {
+                    MakeNonInteractable();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else if (status == FoodStatus.WrongChoiceChosen)
+            {
+                // If a wrong choice was made:
+                // - If this is the correct food, keep it visible but make it non-interactable
+                // - If this is an incorrect food too, hide it
+                if (isCorrectFood)
+                {
+                    MakeNonInteractable();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+                return;
+            }
         }
 
         if (grabInteractable != null)
         {
             grabInteractable.selectExited.AddListener(OnSelectExit);
+        }
+    }
+
+    private void MakeNonInteractable()
+    {
+        // Disable the grab interactable
+        if (grabInteractable != null)
+        {
+            grabInteractable.enabled = false;
+        }
+        
+        // Make the rigidbody kinematic
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+        }
+        
+        // Disable colliders or set them to trigger
+        foreach (Collider collider in colliders)
+        {
+            collider.isTrigger = true;
         }
     }
 
@@ -71,16 +122,51 @@ public class FoodController : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
 
-        // Mark this food as thrown so it stays gone next time
-        SceneNavigator.Instance?.MarkFoodAsThrown(gameObject.name);
+        // Mark this food with the correct choice status
+        SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
+
+        // Immediately disable all incorrect food options
+        DisableIncorrectFoodOption();
 
         yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
         Destroy(gameObject);
     }
 
+    private void DisableIncorrectFoodOption()
+    {
+        // Find all food controllers in the scene
+        FoodController[] allFoodControllers = FindObjectsOfType<FoodController>();
+        
+        // Disable the food controller that are not correct
+        foreach (FoodController foodController in allFoodControllers)
+        {
+            if (foodController.foodType == foodType && !foodController.isCorrectFood)
+            {
+                foodController.MakeNonInteractable();
+            }
+        }
+    }
+
     private void HandleIncorrectDrop()
     {
+        // Mark this food with the wrong choice status
+        SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.WrongChoiceChosen);
+        
+        // Make all correct food items visible but non-interactable
+        FoodController[] allFoodControllers = FindObjectsOfType<FoodController>();
+        foreach (FoodController foodController in allFoodControllers)
+        {
+            if (foodController != this && foodController.isCorrectFood)
+            {
+                foodController.MakeNonInteractable();
+            }
+        }
+        
+        // Destroy this wrong food item
+        Destroy(gameObject);
+        
+        // Go to disaster room
         SceneNavigator.Instance?.GoToDisasterRoom(eventType);
     }
 
