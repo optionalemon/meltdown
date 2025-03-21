@@ -18,6 +18,9 @@ public class FoodController : MonoBehaviour
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
     private Rigidbody rb;
     private Collider[] colliders;
+    
+    // Reference to the shopping list controller
+    private static ShoppingListController shoppingList;
 
     void Awake()
     {
@@ -27,12 +30,17 @@ public class FoodController : MonoBehaviour
         grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         rb = GetComponent<Rigidbody>();
         colliders = GetComponentsInChildren<Collider>();
+        
+        // Find shopping list controller if we don't have it yet
+        if (shoppingList == null)
+        {
+            shoppingList = FindObjectOfType<ShoppingListController>();
+        }
 
         // Check current food status
         if (SceneNavigator.Instance != null)
         {
             FoodStatus status = SceneNavigator.Instance.GetFoodStatus(foodType);
-            Debug.Log($"Food {foodType} status: {status}");
             
             if (status == FoodStatus.RightChoiceChosen)
             {
@@ -42,7 +50,7 @@ public class FoodController : MonoBehaviour
                 }
                 else
                 {
-                    Destroy(gameObject);
+                Destroy(gameObject);
                 }
             }
             else if (status == FoodStatus.WrongChoiceChosen)
@@ -68,7 +76,7 @@ public class FoodController : MonoBehaviour
         }
     }
 
-    private void MakeNonInteractable()
+    public void MakeNonInteractable()
     {
         // Disable the grab interactable
         if (grabInteractable != null)
@@ -124,7 +132,7 @@ public class FoodController : MonoBehaviour
 
         // Mark this food with the correct choice status
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
-
+        
         // Immediately disable all incorrect food options
         DisableIncorrectFoodOption();
 
@@ -132,7 +140,7 @@ public class FoodController : MonoBehaviour
         Destroy(confetti, 1.0f);
         Destroy(gameObject);
     }
-
+    
     private void DisableIncorrectFoodOption()
     {
         // Find all food controllers in the scene

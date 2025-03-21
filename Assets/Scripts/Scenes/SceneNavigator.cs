@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public enum FoodItem
 {
@@ -21,6 +22,9 @@ public enum FoodStatus
 
 public class SceneNavigator : MonoBehaviour
 {
+    // Event for food status changes
+    public static event Action<FoodItem, FoodStatus> OnFoodStatusChanged;
+    
     [SerializeField] private SceneReference supermarketScene;
     [SerializeField] private SceneReference kitchenScene;
     [SerializeField] private SceneReference tutorialRoomScene;
@@ -35,7 +39,7 @@ public class SceneNavigator : MonoBehaviour
     private static SceneNavigator instance;
     public static SceneNavigator Instance => instance;
 
-        // Persistent food state using enums
+    // Persistent food state using enums
     private static Dictionary<FoodItem, FoodStatus> foodStatusDict = new Dictionary<FoodItem, FoodStatus>()
     {
         { FoodItem.Tomatoes, FoodStatus.NotDone },
@@ -43,7 +47,7 @@ public class SceneNavigator : MonoBehaviour
         { FoodItem.Meat, FoodStatus.NotDone },
         { FoodItem.Eggs, FoodStatus.NotDone }
     };
-
+    
     private static bool isAnnouncementPlayed;
 
     private void Awake()
@@ -81,13 +85,22 @@ public class SceneNavigator : MonoBehaviour
 
     public FoodStatus GetFoodStatus(FoodItem food)
     {
+        Debug.Log("Checking status of " + food.ToString());
         return foodStatusDict[food];
     }
 
     public void SetFoodStatus(FoodItem food, FoodStatus status)
     {
-        Debug.Log($"Setting food {food} status to {status}");
-        foodStatusDict[food] = status;
+        Debug.Log("Setting " + food.ToString() + " status to " + status.ToString());
+        
+        // Only update and trigger event if the status actually changed
+        if (foodStatusDict[food] != status)
+        {
+            foodStatusDict[food] = status;
+            
+            // Trigger the event
+            OnFoodStatusChanged?.Invoke(food, status);
+        }
     }
 
     public bool IsFoodChoiceCorrect(FoodItem food)
