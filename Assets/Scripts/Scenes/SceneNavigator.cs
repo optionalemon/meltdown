@@ -85,13 +85,11 @@ public class SceneNavigator : MonoBehaviour
 
     public FoodStatus GetFoodStatus(FoodItem food)
     {
-        Debug.Log("Checking status of " + food.ToString());
         return foodStatusDict[food];
     }
 
     public void SetFoodStatus(FoodItem food, FoodStatus status)
     {
-        Debug.Log("Setting " + food.ToString() + " status to " + status.ToString());
         
         // Only update and trigger event if the status actually changed
         if (foodStatusDict[food] != status)

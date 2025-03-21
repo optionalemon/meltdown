@@ -165,7 +165,6 @@ namespace UnityEditor.XR.Interaction.Toolkit.Samples
             var request = Client.Search(k_InputSystemPackageName);
             if (request.Status == StatusCode.InProgress)
             {
-                Debug.Log($"Searching for ({k_InputSystemPackageName}) in Unity Package Registry.");
                 while (request.Status == StatusCode.InProgress && currentTime < endTime)
                     currentTime = DateTime.Now;
             }
