@@ -66,7 +66,7 @@ public class SubtitleDisplay : MonoBehaviour
             
             // Position the subtitle slightly in front and below the user's gaze
             float distanceFromUser = 1.4f;
-            float verticalOffset = -0.05f;
+            float verticalOffset = -0.03f;
             transform.position = mainCamera.transform.position + forward * distanceFromUser + down * verticalOffset;
             
             // Make the subtitle face the camera (billboarding effect)
