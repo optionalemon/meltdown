@@ -135,6 +135,7 @@ public class FoodController : MonoBehaviour
         
         // Immediately disable all incorrect food options
         DisableIncorrectFoodOption();
+        SuccessUIManager.Instance.ShowSuccessUI();
 
         yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
