@@ -161,7 +161,14 @@ public void SaveDataToFile()
         // If file doesn't exist, add header row first
         if (!fileExists)
         {
-            sb.AppendLine("tomatoes,meat,eggs,milk,total");
+            sb.AppendLine("tomatoes,meat,eggs,milk,total,time_seconds,entry_timestamp,save_timestamp");
+        }
+
+        // Calculate elapsed time since entering supermarket
+        TimeSpan? elapsedTime = null;
+        if (SceneNavigator.supermarketEntryTime != null)
+        {
+            elapsedTime = DateTime.Now - SceneNavigator.supermarketEntryTime.Value;
         }
         
         // Add the current data to the CSV, 0 if the food item is wrong and 1 if it's correct
@@ -171,8 +178,12 @@ public void SaveDataToFile()
         int milk = SceneNavigator.Instance.GetFoodStatus(FoodItem.Milk) == FoodStatus.RightChoiceChosen ? 1 : 0;
         
         int total = tomatoes + meat + eggs + milk;
+
+        string entryTime = SceneNavigator.supermarketEntryTime.HasValue ? SceneNavigator.supermarketEntryTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "N/A";
+        string saveTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        string timeSeconds = elapsedTime.HasValue ? elapsedTime.Value.TotalSeconds.ToString("F1") : "N/A";
         
-        sb.AppendLine($"{tomatoes},{meat},{eggs},{milk},{total}");
+        sb.AppendLine($"{tomatoes},{meat},{eggs},{milk},{total},{timeSeconds},{entryTime},{saveTime}");
         
         // Append to file (create if doesn't exist)
         File.AppendAllText(filePath, sb.ToString());

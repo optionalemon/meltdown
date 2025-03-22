@@ -36,6 +36,8 @@ public class SceneNavigator : MonoBehaviour
     private GameObject currentSubtitleCanvas;
     private SceneReference currentScene;
 
+    // Time when the player entered the supermarket - for data collection
+    public static DateTime? supermarketEntryTime = null;
     private static SceneNavigator instance;
     public static SceneNavigator Instance => instance;
 
@@ -129,6 +131,11 @@ public class SceneNavigator : MonoBehaviour
 
         if (sceneRef == supermarketScene)
         {
+            if (!supermarketEntryTime.HasValue)
+            {
+                supermarketEntryTime = DateTime.Now;
+                Debug.Log("User entered supermarket at: " + supermarketEntryTime.Value);
+            }
             SoundManager.Instance.StopBackgroundMusic(true);
 
             if (!isAnnouncementPlayed) {
