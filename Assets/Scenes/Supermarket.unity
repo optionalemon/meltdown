@@ -3024,7 +3024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   successUI: {fileID: 94248289}
-  displayDuration: 15
+  displayDuration: 5
 --- !u!1001 &136862346
 PrefabInstance:
   m_ObjectHideFlags: 0
