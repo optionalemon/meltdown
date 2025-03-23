@@ -4831,7 +4831,7 @@ GameObject:
   - component: {fileID: 440432721}
   - component: {fileID: 440432720}
   m_Layer: 5
-  m_Name: ScanLabel
+  m_Name: CartonScanLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8192,8 +8192,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.5896441, z: 1.6989584}
-  m_Center: {x: -8.744022e-17, y: -0.18441553, z: -0.024451056}
+  m_Size: {x: 0.5822066, y: 0.5896441, z: 1.6989584}
+  m_Center: {x: -0.20889689, y: -0.18441553, z: -0.024451056}
 --- !u!114 &959716342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9726,7 +9726,7 @@ GameObject:
   - component: {fileID: 1206370407}
   - component: {fileID: 1206370406}
   m_Layer: 5
-  m_Name: ScanLabel
+  m_Name: BeefScanLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11887,10 +11887,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanningParticles: {fileID: 577042108}
-  scanDistance: 3
+  scanDistance: 1
+  minScanDistance: 0.05
+  scanConeAngle: 30
   foodLayer:
     serializedVersion: 2
     m_Bits: 64
+  scanOrigin: {fileID: 1561624506}
 --- !u!1 &1578342095
 GameObject:
   m_ObjectHideFlags: 0
@@ -13513,7 +13516,7 @@ GameObject:
   - component: {fileID: 1710340545}
   - component: {fileID: 1710340544}
   m_Layer: 5
-  m_Name: ScanLabel
+  m_Name: ChickenScanLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13857,7 +13860,7 @@ GameObject:
   - component: {fileID: 1736086816}
   - component: {fileID: 1736086815}
   m_Layer: 5
-  m_Name: ScanLabel (1)
+  m_Name: PlasticScanLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14828,7 +14831,7 @@ Transform:
   m_GameObject: {fileID: 1849203722}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.24, y: 0.22, z: 2.569}
+  m_LocalPosition: {x: -3.213, y: 0.22, z: 2.757}
   m_LocalScale: {x: 0.67339617, y: 0.67339617, z: 0.67339617}
   m_ConstrainProportionsScale: 0
   m_Children:

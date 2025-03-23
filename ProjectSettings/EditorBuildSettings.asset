@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DisasterRoom.unity
     guid: 1683f2c4b27018d418168d77ca84c37a
   - enabled: 1
-    path: Assets/Scenes/Kitchen.unity
+    path: Assets/Scenes/FoodWasteRoom.unity
     guid: 910e21587a849794f81ccfd5dddf401e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 785feeeefe2dae7db8ddff3467150be0, type: 2}
