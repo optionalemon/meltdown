@@ -26,7 +26,7 @@ public class SceneNavigator : MonoBehaviour
     public static event Action<FoodItem, FoodStatus> OnFoodStatusChanged;
     
     [SerializeField] private SceneReference supermarketScene;
-    [SerializeField] private SceneReference kitchenScene;
+    [SerializeField] private SceneReference foodWasteRoomScene;
     [SerializeField] private SceneReference tutorialRoomScene;
     [SerializeField] private SceneReference disasterRoomScene;
     [SerializeField] private GameObject subtitleCanvasPrefab;
@@ -69,9 +69,9 @@ public class SceneNavigator : MonoBehaviour
         LoadScene(supermarketScene);
     }
 
-    public void GoToKitchen()
+    public void GoToFoodWasteRoom()
     {
-        LoadScene(kitchenScene);
+        LoadScene(foodWasteRoomScene);
     }
 
     public void GoToTutorialRoom()
@@ -166,7 +166,8 @@ public class SceneNavigator : MonoBehaviour
                 currentSubtitleCanvas = null;
             }
 
-            SoundManager.Instance?.StopBackgroundMusic(true);
+            SoundManager.Instance.StopBackgroundMusic(true);
+            SoundManager.Instance.StopSound();
         }
     }
 }
