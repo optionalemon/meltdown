@@ -85,5 +85,9 @@ public class SuccessUIManager : MonoBehaviour
 
         // Hide the UI
         successUI.SetActive(false);
+        if (closeButton != null)
+        {
+            closeButton.gameObject.SetActive(false);
+        }
     }
 }
