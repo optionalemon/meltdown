@@ -719,6 +719,11 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+--- !u!223 &664672058 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 781630661673262083, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+  m_PrefabInstance: {fileID: 664672053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &679467943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1795,6 +1800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298013771}
+  - component: {fileID: 1298013772}
   m_Layer: 0
   m_Name: Go Back Button
   m_TagString: Untagged
@@ -1819,6 +1825,20 @@ Transform:
   - {fileID: 664672054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1298013772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298013770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1992ef03041ec4bbfb1aabad9caa248d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goBackButton: {fileID: 664672058}
+  delayTime: 10
 --- !u!114 &1487961852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8881028038475493880, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}

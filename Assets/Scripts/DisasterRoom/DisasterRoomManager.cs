@@ -29,18 +29,12 @@ Rejecting" + " \"ugly\" " + @"food fuels overflowing landfills and environmental
 Next time, choose wisely. Every choice makes a difference.";
                 break;
             case "WRONG_EGGS":
-                disasterRoomHeader.text = "You are a menace to society lol";
-                disasterRoomDescription.text = @"You are probably the reason why we are so doomed right now.
+                disasterRoomHeader.text = "WARNING: GLOBAL WARMING!";
+                disasterRoomDescription.text = @"Transport accounts for 19% of total food system emissions globally. 
+Singapore imports more than 90% of its food. This means that our carbon footprint from imported foods is undesirably high!
 
-Look at you, being teleported to this special education room.
-
-Have you no shame??
-
-You need to start doing the right thing right now.
-
-Or not. I don't care. You're the one who is gonna die anyway.
-
-Cheers babe.";
+Help to reduce our carbon footprint by purchasing food grown in Singapore! By supporting local food producers, they can also scale their production and lower food prices for everyone! 
+";
                 break;
             case "WRONG_MILK":
                 disasterRoomHeader.text = "WARNING: PLASTIC WASTE CRISIS";
@@ -52,19 +46,14 @@ Microplastics leach into food, water, and the air we breathe.
 
 Your choice matters. Next time, choose sustainability before it’s too late.";
                 break;
-            case "WRONG MEAT":
-                disasterRoomHeader.text = "You are a menace to society lol";
-                disasterRoomDescription.text = @"You are probably the reason why we are so doomed right now.
+            case "WRONG_MEAT":
+                disasterRoomHeader.text = "WARNING: CARBON EMISSIONS";
+                disasterRoomDescription.text = @"Every beef meal fuels climate chaos. Producing just 1 kg of beef releases up to 101 kg of CO2e—that’s like driving hundreds of kilometers. 
 
-Look at you, being teleported to this special education room.
+Chicken? As low as 3 kg. That’s over 30 times less pollution. Beef isn’t just food; it’s a carbon disaster on your plate. Keep eating it, and we fast-track global destruction. 
 
-Have you no shame??
-
-You need to start doing the right thing right now.
-
-Or not. I don't care. You're the one who is gonna die anyway.
-
-Cheers babe.";
+But there’s a simple choice: switch to chicken and slash your impact. Eat wisely—or watch the planet pay the price.
+";
                 break;
             default:
                 disasterRoomHeader.text = "You are a menace to society lol";
