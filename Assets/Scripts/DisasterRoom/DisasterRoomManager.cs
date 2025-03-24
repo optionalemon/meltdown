@@ -48,7 +48,7 @@ Your choice matters. Next time, choose sustainability before it’s too late.";
                 break;
             case "WRONG_MEAT":
                 disasterRoomHeader.text = "WARNING: CARBON EMISSIONS";
-                disasterRoomDescription.text = @"Every beef meal fuels climate chaos. Producing just 1 kg of beef releases up to 101 kg of CO2e—that’s like driving hundreds of kilometers. 
+                disasterRoomDescription.text = @"Every beef meal fuels climate chaos. Producing just 1 kg of beef releases up to 101 kg of carbon dioxide equivalents (CO2e)—that’s like driving hundreds of kilometers. 
 
 Chicken? As low as 3 kg. That’s over 30 times less pollution. Beef isn’t just food; it’s a carbon disaster on your plate. Keep eating it, and we fast-track global destruction. 
 
