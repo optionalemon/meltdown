@@ -344,7 +344,7 @@ MonoBehaviour:
   foodType: 2
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: WRONG_MEAT
+  eventType: 3
   successUIText: {fileID: 0}
 --- !u!114 &30943333
 MonoBehaviour:
@@ -5455,7 +5455,7 @@ MonoBehaviour:
   foodType: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: WRONG_MILK
+  eventType: 4
   successUIText: {fileID: 0}
 --- !u!114 &545513741
 MonoBehaviour:
@@ -10081,7 +10081,7 @@ MonoBehaviour:
   foodType: 0
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: 
+  eventType: 0
   successUIText: {fileID: 1768484317}
 --- !u!114 &1179831560
 MonoBehaviour:
@@ -11644,7 +11644,7 @@ MonoBehaviour:
   foodType: 1
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: 
+  eventType: 0
   successUIText: {fileID: 1768484317}
 --- !u!114 &1455421452
 MonoBehaviour:
@@ -13627,7 +13627,7 @@ MonoBehaviour:
   foodType: 3
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: WRONG_EGGS
+  eventType: 1
   successUIText: {fileID: 0}
 --- !u!114 &1635281244
 MonoBehaviour:
@@ -16547,7 +16547,7 @@ MonoBehaviour:
   foodType: 2
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: 
+  eventType: 0
   successUIText: {fileID: 1768484317}
 --- !u!114 &1921465944
 MonoBehaviour:
@@ -17168,7 +17168,7 @@ MonoBehaviour:
   foodType: 0
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: WRONG_TOMATO
+  eventType: 2
   successUIText: {fileID: 0}
 --- !u!114 &2000798889
 MonoBehaviour:
@@ -17686,7 +17686,7 @@ MonoBehaviour:
   foodType: 3
   shoppingCartTransform: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
-  eventType: 
+  eventType: 0
   successUIText: {fileID: 1768484317}
 --- !u!114 &2051402463
 MonoBehaviour:

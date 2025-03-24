@@ -9,16 +9,16 @@ public class DisasterRoomManager : MonoBehaviour
 
     void Start()
     {
-        string eventType = SceneNavigator.DISASTER_EVENT_TYPE;
+        DisasterEventType eventType = SceneNavigator.DISASTER_EVENT_TYPE;
 
         setDisasterEventText(eventType);
     }
 
-    private void setDisasterEventText(string eventType)
+    private void setDisasterEventText(DisasterEventType eventType)
     {
         switch (eventType)
         {
-            case "WRONG_TOMATO":
+            case DisasterEventType.WRONG_TOMATO:
                 disasterRoomHeader.text = "WARNING: FOOD WASTE CRISIS";
                 disasterRoomDescription.text = @"That tomato wasn’t bad—just different.
 
@@ -28,7 +28,7 @@ Rejecting" + " \"ugly\" " + @"food fuels overflowing landfills and environmental
 
 Next time, choose wisely. Every choice makes a difference.";
                 break;
-            case "WRONG_EGGS":
+            case DisasterEventType.WRONG_EGGS:
                 disasterRoomHeader.text = "WARNING: GLOBAL WARMING!";
                 disasterRoomDescription.text = @"Transport accounts for 19% of total food system emissions globally. 
 Singapore imports more than 90% of its food. This means that our carbon footprint from imported foods is undesirably high!
@@ -36,7 +36,7 @@ Singapore imports more than 90% of its food. This means that our carbon footprin
 Help to reduce our carbon footprint by purchasing food grown in Singapore! By supporting local food producers, they can also scale their production and lower food prices for everyone! 
 ";
                 break;
-            case "WRONG_MILK":
+            case DisasterEventType.WRONG_MILK:
                 disasterRoomHeader.text = "WARNING: PLASTIC WASTE CRISIS";
                 disasterRoomDescription.text = @"That plastic bottle will outlive you.
 
@@ -46,7 +46,7 @@ Microplastics leach into food, water, and the air we breathe.
 
 Your choice matters. Next time, choose sustainability before it’s too late.";
                 break;
-            case "WRONG_MEAT":
+            case DisasterEventType.WRONG_MEAT:
                 disasterRoomHeader.text = "WARNING: CARBON EMISSIONS";
                 disasterRoomDescription.text = @"Every beef meal fuels climate chaos. Producing just 1 kg of beef releases up to 101 kg of carbon dioxide equivalents (CO2e)—that’s like driving hundreds of kilometers. 
 

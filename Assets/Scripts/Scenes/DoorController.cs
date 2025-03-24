@@ -88,7 +88,7 @@ public class DoorController : MonoBehaviour
                 SceneNavigator.Instance.GoToTutorialRoom();
                 break;
             case TeleportationType.DisasterRoom:
-                SceneNavigator.Instance.GoToDisasterRoom("");
+                SceneNavigator.Instance.GoToDisasterRoom(DisasterEventType.NONE);
                 break;
         }
     }

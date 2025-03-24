@@ -20,18 +20,26 @@ public enum FoodStatus
     RightChoiceChosen  // User made the correct choice with this food
 }
 
+public enum DisasterEventType
+{
+    NONE,
+    WRONG_EGGS,
+    WRONG_TOMATO,
+    WRONG_MEAT,
+    WRONG_MILK
+}
 public class SceneNavigator : MonoBehaviour
 {
     // Event for food status changes
     public static event Action<FoodItem, FoodStatus> OnFoodStatusChanged;
-    
+
     [SerializeField] private SceneReference supermarketScene;
     [SerializeField] private SceneReference foodWasteRoomScene;
     [SerializeField] private SceneReference tutorialRoomScene;
     [SerializeField] private SceneReference disasterRoomScene;
     [SerializeField] private GameObject subtitleCanvasPrefab;
 
-    public static string DISASTER_EVENT_TYPE;
+    public static DisasterEventType DISASTER_EVENT_TYPE;
 
     private GameObject currentSubtitleCanvas;
     private SceneReference currentScene;
@@ -49,7 +57,7 @@ public class SceneNavigator : MonoBehaviour
         { FoodItem.Meat, FoodStatus.NotDone },
         { FoodItem.Eggs, FoodStatus.NotDone }
     };
-    
+
     private static bool isAnnouncementPlayed;
 
     private void Awake()
@@ -79,7 +87,7 @@ public class SceneNavigator : MonoBehaviour
         LoadScene(tutorialRoomScene);
     }
 
-    public void GoToDisasterRoom(string eventType)
+    public void GoToDisasterRoom(DisasterEventType eventType)
     {
         DISASTER_EVENT_TYPE = eventType;
         LoadScene(disasterRoomScene);
@@ -92,12 +100,12 @@ public class SceneNavigator : MonoBehaviour
 
     public void SetFoodStatus(FoodItem food, FoodStatus status)
     {
-        
+
         // Only update and trigger event if the status actually changed
         if (foodStatusDict[food] != status)
         {
             foodStatusDict[food] = status;
-            
+
             // Trigger the event
             OnFoodStatusChanged?.Invoke(food, status);
         }
@@ -137,8 +145,10 @@ public class SceneNavigator : MonoBehaviour
                 Debug.Log("User entered supermarket at: " + supermarketEntryTime.Value);
             }
             SoundManager.Instance.StopBackgroundMusic(true);
+            SoundManager.Instance.StopSound();
 
-            if (!isAnnouncementPlayed) {
+            if (!isAnnouncementPlayed)
+            {
                 isAnnouncementPlayed = true;
                 currentSubtitleCanvas = Instantiate(subtitleCanvasPrefab);
 
@@ -150,13 +160,37 @@ public class SceneNavigator : MonoBehaviour
                 if (announcementClip != null)
                     yield return new WaitForSeconds(announcementClip.length + 0.5f);
             }
-            SoundManager.Instance.PlayBackgroundMusic(SoundType.SUPERMARKET_MUSIC, true);
+
+            // Check to see if the scene has changed - if it has then don't play the supermarket bgm
+            bool hasSceneChanged = sceneRef.BuildIndex != SceneManager.GetActiveScene().buildIndex;
+            if (!hasSceneChanged)
+            {
+                SoundManager.Instance.PlayBackgroundMusic(SoundType.SUPERMARKET_MUSIC, true);
+            }
+
         }
         else if (sceneRef == disasterRoomScene)
         {
             SoundManager.Instance.StopBackgroundMusic(true);
             SoundManager.Instance.StopSound();
             SoundManager.Instance.PlayBackgroundMusic(SoundType.DISASTER_MUSIC, true);
+            switch (DISASTER_EVENT_TYPE)
+            {
+                case DisasterEventType.WRONG_TOMATO:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_TOMATO_AUDIO, 2f);
+                    break;
+                case DisasterEventType.WRONG_MILK:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_MILK_AUDIO, 2f);
+                    break;
+                case DisasterEventType.WRONG_EGGS:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_EGGS_AUDIO, 2f);
+                    break;
+                case DisasterEventType.WRONG_MEAT:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_MEAT_AUDIO, 2f);
+                    break;
+                default:
+                    break;
+            }
         }
         else
         {

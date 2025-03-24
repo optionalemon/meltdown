@@ -13,7 +13,7 @@ public class FoodController : MonoBehaviour
     [Header("References")]
     public Transform shoppingCartTransform;
     public GameObject confettiPrefab;
-    public string eventType;
+    public DisasterEventType eventType;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;

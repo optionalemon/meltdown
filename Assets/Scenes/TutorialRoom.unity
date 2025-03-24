@@ -3998,6 +3998,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d0ad9e1fd90ba4a4c8fa5201a588ce75, type: 3}
   - {fileID: 8300000, guid: 49274dd43f2e6411fb6ce33a093a6683, type: 3}
   - {fileID: 8300000, guid: 557befd21c533b36d8cd10a711897c4a, type: 3}
+  - {fileID: 8300000, guid: 8ad907aea0894465799affe4722eff3f, type: 3}
+  - {fileID: 8300000, guid: 8e134812b633844f085bca866de177e9, type: 3}
+  - {fileID: 8300000, guid: 8687173d288c34322b609366fc444255, type: 3}
+  - {fileID: 8300000, guid: 6220b388ca72846b6afbd3866d7b4eb8, type: 3}
   fadeInDuration: 2
   fadeOutDuration: 2
 --- !u!82 &1094229808
