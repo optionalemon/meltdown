@@ -1,14 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SuccessUIManager : MonoBehaviour
 {
     // Singleton instance
     public static SuccessUIManager Instance { get; private set; }
-    
+
     [SerializeField] private GameObject successUI;
+
+    [SerializeField] private Button closeButton;
     [SerializeField] private float displayDuration = 5f;
-    
+
     private Coroutine displayCoroutine;
 
     private void Awake()
@@ -19,16 +22,22 @@ public class SuccessUIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         Instance = this;
-        
+
         // Optional: Keep this object across scene loads
         // DontDestroyOnLoad(gameObject);
-        
+
         // Make sure the UI is not active at start
         if (successUI != null)
         {
             successUI.SetActive(false);
+        }
+
+        if (closeButton != null)
+        {
+            closeButton.gameObject.SetActive(false);
+            closeButton.onClick.AddListener(HideSuccessUI);
         }
     }
 
@@ -44,26 +53,24 @@ public class SuccessUIManager : MonoBehaviour
         {
             StopCoroutine(displayCoroutine);
         }
-        
+
         // Start a new display coroutine
-        displayCoroutine = StartCoroutine(DisplaySuccessUICoroutine());
+        displayCoroutine = StartCoroutine(DisplayCloseButtonCoroutine());
     }
-    
-    private IEnumerator DisplaySuccessUICoroutine()
+
+    private IEnumerator DisplayCloseButtonCoroutine()
     {
-        // Show the UI
-        successUI.SetActive(true);
-        
-        // Wait for the display duration
+        // Wait for 5 seconds before showing the close button
         yield return new WaitForSeconds(displayDuration);
-        
-        // Hide the UI after duration has passed
-        successUI.SetActive(false);
-        
-        // Clear the coroutine reference
-        displayCoroutine = null;
+
+        if (closeButton != null)
+        {
+            closeButton.gameObject.SetActive(true);
+            closeButton.interactable = true;
+            closeButton.transform.SetAsLastSibling();
+        }
     }
-    
+
     /// <summary>
     /// Forcefully hide the Success UI if needed
     /// </summary>
@@ -75,7 +82,7 @@ public class SuccessUIManager : MonoBehaviour
             StopCoroutine(displayCoroutine);
             displayCoroutine = null;
         }
-        
+
         // Hide the UI
         successUI.SetActive(false);
     }
