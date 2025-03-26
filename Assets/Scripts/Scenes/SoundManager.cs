@@ -12,7 +12,11 @@ public enum SoundType
     WRONG_TOMATO_AUDIO,
     WRONG_MILK_AUDIO,
     WRONG_MEAT_AUDIO,
-    WRONG_EGGS_AUDIO
+    WRONG_EGGS_AUDIO,
+    END_MUSIC,
+    END_AUDIO,
+    FOODWASTE_ANNOUNCEMENT,
+    FOODWASTE_MUSIC
 }
 
 [RequireComponent(typeof(AudioSource))]
