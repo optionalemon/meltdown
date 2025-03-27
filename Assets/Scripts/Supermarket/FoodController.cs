@@ -146,15 +146,17 @@ public class FoodController : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
 
-        // Mark this food with the correct choice status
-        SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
+        if (eventType != DisasterEventType.WRONG_FOOD_WASTE)
+        {
+             // Mark this food with the correct choice status
+            SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
 
-        // Immediately disable all incorrect food options
-        DisableIncorrectFoodOption();
-
-        SetSuccessUIText(foodType);
-        SuccessUIManager.Instance.HideSuccessUI();
-        SuccessUIManager.Instance.ShowSuccessUI();
+            // Immediately disable all incorrect food options
+            DisableIncorrectFoodOption();
+            SetSuccessUIText(foodType);
+            SuccessUIManager.Instance?.HideSuccessUI();
+            SuccessUIManager.Instance?.ShowSuccessUI();
+        }
 
         yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
@@ -224,7 +226,12 @@ Plastic waste lingers for centuries, but your choice today helps create a cleane
         Destroy(gameObject);
 
         // Go to disaster room
-        SceneNavigator.Instance?.GoToDisasterRoom(eventType);
+        if (eventType == DisasterEventType.WRONG_FOOD_WASTE)
+        {
+            SceneNavigator.Instance?.GoToDisasterFWRoom(eventType);
+        } else {
+            SceneNavigator.Instance?.GoToDisasterRoom(eventType);
+        }
     }
 
     private IEnumerator ReturnToOriginalPosition()

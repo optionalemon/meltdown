@@ -5924,6 +5924,9 @@ MonoBehaviour:
   disasterRoomScene:
     asset: {fileID: 102900000, guid: 1683f2c4b27018d418168d77ca84c37a, type: 3}
     guid: 1683f2c4b27018d418168d77ca84c37a
+  disasterFWRoomScene:
+    asset: {fileID: 102900000, guid: 293dface2d7d89d3aa16d6b545a630b5, type: 3}
+    guid: 293dface2d7d89d3aa16d6b545a630b5
   endScene:
     asset: {fileID: 102900000, guid: a36f6f0566c0fcf47a3bc051b17c1b56, type: 3}
     guid: a36f6f0566c0fcf47a3bc051b17c1b56

@@ -3316,7 +3316,7 @@ MonoBehaviour:
   CorrectPlaceToThrow: {fileID: 524313710}
   IncorrectPlaceToThrow: {fileID: 1359252963}
   confettiPrefab: {fileID: 1186290254}
-  eventType: 0
+  eventType: 5
   successUIText: {fileID: 0}
 --- !u!4 &974182969 stripped
 Transform:
@@ -4651,7 +4651,7 @@ MonoBehaviour:
   CorrectPlaceToThrow: {fileID: 1359252963}
   IncorrectPlaceToThrow: {fileID: 1359252963}
   confettiPrefab: {fileID: 1186290254}
-  eventType: 0
+  eventType: 5
   successUIText: {fileID: 0}
 --- !u!114 &1305446626
 MonoBehaviour:
@@ -5548,7 +5548,7 @@ MonoBehaviour:
   CorrectPlaceToThrow: {fileID: 27593191}
   IncorrectPlaceToThrow: {fileID: 1359252963}
   confettiPrefab: {fileID: 1186290254}
-  eventType: 1
+  eventType: 5
   successUIText: {fileID: 0}
 --- !u!1 &1557209808
 GameObject:
