@@ -64,7 +64,7 @@ public class DoorController : MonoBehaviour
     private IEnumerator PlaySoundAndTeleport()
     {
         // First, play the door open sound
-        FindObjectOfType<SoundManager>().PlaySound(SoundType.DOOR_OPEN);
+        Object.FindFirstObjectByType<SoundManager>().PlaySound(SoundType.DOOR_OPEN);
 
         // Optional: Wait a short time to let the sound play
         yield return new WaitForSeconds(0.5f);

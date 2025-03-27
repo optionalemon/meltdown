@@ -51,7 +51,7 @@ public class PosterInteraction : MonoBehaviour
         if (highlightObject != null) highlightObject.SetActive(false);
         if (overlay != null) overlay.SetActive(false);
 
-        overlayManager = FindObjectOfType<PosterOverlayManager>();
+        overlayManager = Object.FindFirstObjectByType<PosterOverlayManager>();
     }
 
     private void OnHoverEntered(HoverEnterEventArgs args)

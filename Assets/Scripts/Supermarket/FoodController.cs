@@ -40,7 +40,7 @@ public class FoodController : MonoBehaviour
         // Find shopping list controller if we don't have it yet
         if (shoppingList == null)
         {
-            shoppingList = FindObjectOfType<ShoppingListController>();
+            shoppingList = FindFirstObjectByType<ShoppingListController>();
         }
 
         // Check current food status
@@ -193,7 +193,7 @@ Plastic waste lingers for centuries, but your choice today helps create a cleane
     private void DisableIncorrectFoodOption()
     {
         // Find all food controllers in the scene
-        FoodController[] allFoodControllers = FindObjectsOfType<FoodController>();
+        FoodController[] allFoodControllers = FindObjectsByType<FoodController>(FindObjectsSortMode.None);
 
         // Disable the food controller that are not correct
         foreach (FoodController foodController in allFoodControllers)
@@ -211,7 +211,7 @@ Plastic waste lingers for centuries, but your choice today helps create a cleane
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.WrongChoiceChosen);
 
         // Make all correct food items visible but non-interactable
-        FoodController[] allFoodControllers = FindObjectsOfType<FoodController>();
+        FoodController[] allFoodControllers = FindObjectsByType<FoodController>(FindObjectsSortMode.None);
         foreach (FoodController foodController in allFoodControllers)
         {
             if (foodController != this && foodController.isCorrectFood)

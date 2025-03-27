@@ -60,7 +60,24 @@ public class SceneNavigator : MonoBehaviour
         { FoodItem.Tomatoes, FoodStatus.NotDone },
         { FoodItem.Milk, FoodStatus.NotDone },
         { FoodItem.Meat, FoodStatus.NotDone },
-        { FoodItem.Eggs, FoodStatus.NotDone }
+        { FoodItem.Eggs, FoodStatus.NotDone },
+        { FoodItem.ChickenBone, FoodStatus.NotDone },
+        { FoodItem.Eggshells, FoodStatus.NotDone },
+        { FoodItem.CoffeeGrounds, FoodStatus.NotDone }
+    };
+
+    public static FoodItem[] supermarketFoodItems = new FoodItem[]
+    {
+        FoodItem.Tomatoes,
+        FoodItem.Milk,
+        FoodItem.Meat,
+        FoodItem.Eggs
+    };
+    public static FoodItem[] foodWasteRoomFoodItems = new FoodItem[]
+    {
+        FoodItem.ChickenBone,
+        FoodItem.Eggshells,
+        FoodItem.CoffeeGrounds
     };
 
     private static bool isAnnouncementPlayed;

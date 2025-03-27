@@ -129,7 +129,7 @@ public class ShoppingListController : MonoBehaviour
         bool allDone = true;
         
         // Check if all food items have a status other than NotDone
-        foreach (FoodItem foodItem in SceneNavigator.foodStatusDict.Keys)
+        foreach (FoodItem foodItem in SceneNavigator.supermarketFoodItems)
         {
             FoodStatus status = SceneNavigator.Instance.GetFoodStatus(foodItem);
             if (status == FoodStatus.NotDone)
@@ -215,7 +215,7 @@ public void SaveDataToFile()
     private IEnumerator TransitionToSpecialLight()
     {
         // First, find and store all lights in the scene
-        Light[] allLights = FindObjectsOfType<Light>();
+        Light[] allLights = FindObjectsByType<Light>(FindObjectsSortMode.None);
         List<Light> otherLights = new List<Light>();
         List<float> originalIntensities = new List<float>();
 
