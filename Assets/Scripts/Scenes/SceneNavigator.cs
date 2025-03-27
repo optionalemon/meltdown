@@ -29,7 +29,8 @@ public enum DisasterEventType
     WRONG_EGGS,
     WRONG_TOMATO,
     WRONG_MEAT,
-    WRONG_MILK
+    WRONG_MILK,
+    WRONG_FOOD_WASTE
 }
 public class SceneNavigator : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class SceneNavigator : MonoBehaviour
     [SerializeField] private SceneReference foodWasteRoomScene;
     [SerializeField] private SceneReference tutorialRoomScene;
     [SerializeField] private SceneReference disasterRoomScene;
+    [SerializeField] private SceneReference disasterFWRoomScene;
     [SerializeField] private SceneReference endScene;
     [SerializeField] private GameObject subtitleCanvasPrefab;
 
@@ -119,6 +121,11 @@ public class SceneNavigator : MonoBehaviour
     {
         DISASTER_EVENT_TYPE = eventType;
         LoadScene(disasterRoomScene);
+    }
+    public void GoToDisasterFWRoom(DisasterEventType eventType)
+    {
+        DISASTER_EVENT_TYPE = eventType;
+        LoadScene(disasterFWRoomScene);
     }
 
     public FoodStatus GetFoodStatus(FoodItem food)
@@ -200,7 +207,7 @@ public class SceneNavigator : MonoBehaviour
             }
 
         }
-        else if (sceneRef == disasterRoomScene)
+        else if (sceneRef == disasterRoomScene || sceneRef == disasterFWRoomScene)
         {
             SoundManager.Instance.StopBackgroundMusic(true);
             SoundManager.Instance.StopSound();
