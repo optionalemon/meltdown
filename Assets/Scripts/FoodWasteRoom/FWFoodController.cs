@@ -28,7 +28,8 @@ public class FWFoodController : MonoBehaviour
 
     void Awake()
     {
-        if (successVersion != null) {
+        if (successVersion != null)
+        {
             successVersion.SetActive(false); // hide the success version at the start
         }
         originalPosition = transform.position;
@@ -122,54 +123,62 @@ public class FWFoodController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
-        
+
         StartCoroutine(UpdateCorrectChoice());
     }
 
-    private IEnumerator UpdateCorrectChoice() {
+    private IEnumerator UpdateCorrectChoice()
+    {
         MakeNonInteractable();
         // and customise based on the food type
-        if (foodType == FoodItem.Eggshells) {
+        if (foodType == FoodItem.Eggshells)
+        {
             Destroy(gameObject); // end up in the blender
-        } else if (foodType == FoodItem.ChickenBone) {
+        }
+        else if (foodType == FoodItem.ChickenBone)
+        {
             Destroy(gameObject); // will end up in trash bin
-        } else if (foodType == FoodItem.CoffeeGrounds) {
+        }
+        else if (foodType == FoodItem.CoffeeGrounds)
+        {
             // stay on the tray but not interactable
             // update original position and rotation to the current position and rotation
             Destroy(gameObject); // destroy the game object
             successVersion.SetActive(true); // show the success version
 
-        } 
+        }
+        // added to fix compile error
+        yield return null;
     }
 
-//    private void SetSuccessUIText(FoodItem type)
-//    {
-//        string successMessage;
-//        switch (type)
-/*         {
-            case FoodItem.Tomatoes:
-                successMessage = @"Millions of perfectly edible fruits and vegetables are wasted every year just because they look imperfect. 
-By choosing the 'imperfect' tomato, you’ve helped prevent food waste and saved valuable resources like water, energy, and labor.";
-                break;
-            case FoodItem.Milk:
-                successMessage = @"By choosing the milk carton over the plastic bottle, you’ve helped reduce plastic waste and support more sustainable packaging.
-Plastic waste lingers for centuries, but your choice today helps create a cleaner, greener future.";
-                break;
-            case FoodItem.Meat:
-                successMessage = @"Emissions from beef herd production alone typically range from about 79kg to 101kg of carbon dioxide equivalent (CO2e) per kg of edible weight, according to one paper. That compares with 3kg to 21kg of CO2e for the full supply chain of chickens, including production.";
-                break;
-            case FoodItem.Eggs:
-                successMessage = @"Although local eggs may seem more expensive than imported eggs due to the cost of production, the carbon emissions accumulated from transporting the eggs from farms to supermarkets is only 2% that of imported eggs.";
-                break;
-            default:
-                successMessage = @"You are correct because...";
-                break;
+    //    private void SetSuccessUIText(FoodItem type)
+    //    {
+    //        string successMessage;
+    //        switch (type)
+    /*         {
+                case FoodItem.Tomatoes:
+                    successMessage = @"Millions of perfectly edible fruits and vegetables are wasted every year just because they look imperfect. 
+    By choosing the 'imperfect' tomato, you’ve helped prevent food waste and saved valuable resources like water, energy, and labor.";
+                    break;
+                case FoodItem.Milk:
+                    successMessage = @"By choosing the milk carton over the plastic bottle, you’ve helped reduce plastic waste and support more sustainable packaging.
+    Plastic waste lingers for centuries, but your choice today helps create a cleaner, greener future.";
+                    break;
+                case FoodItem.Meat:
+                    successMessage = @"Emissions from beef herd production alone typically range from about 79kg to 101kg of carbon dioxide equivalent (CO2e) per kg of edible weight, according to one paper. That compares with 3kg to 21kg of CO2e for the full supply chain of chickens, including production.";
+                    break;
+                case FoodItem.Eggs:
+                    successMessage = @"Although local eggs may seem more expensive than imported eggs due to the cost of production, the carbon emissions accumulated from transporting the eggs from farms to supermarkets is only 2% that of imported eggs.";
+                    break;
+                default:
+                    successMessage = @"You are correct because...";
+                    break;
 
 
-        }
-        successUIText.text = successMessage;
+            }
+            successUIText.text = successMessage;
 
-    } */
+        } */
 
     private void HandleIncorrectDrop()
     {
