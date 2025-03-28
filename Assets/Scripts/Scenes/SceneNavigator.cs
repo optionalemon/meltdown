@@ -30,7 +30,9 @@ public enum DisasterEventType
     WRONG_TOMATO,
     WRONG_MEAT,
     WRONG_MILK,
-    WRONG_FOOD_WASTE
+    WRONG_COFFEE_GROUNDS,
+    WRONG_EGGSHELLS,
+    WRONG_VEG_FRUIT_WASTE
 }
 public class SceneNavigator : MonoBehaviour
 {

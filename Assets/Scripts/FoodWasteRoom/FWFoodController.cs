@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class FoodController : MonoBehaviour
+public class FWFoodController : MonoBehaviour
 {
     [Header("Food Properties")]
-    public bool isCorrectFood;
     public FoodItem foodType;
 
     [Header("References")]
     public Transform CorrectPlaceToThrow;
+    public Transform IncorrectPlaceToThrow;
     public GameObject confettiPrefab;
     public DisasterEventType eventType;
+
+    public GameObject successVersion;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -21,13 +23,14 @@ public class FoodController : MonoBehaviour
     private Rigidbody rb;
     private Collider[] colliders;
 
-    [SerializeField] private TMP_Text successUIText;
 
-    // Reference to the shopping list controller
-    private static ShoppingListController shoppingList;
+    // [SerializeField] private TMP_Text successUIText;
 
     void Awake()
     {
+        if (successVersion != null) {
+            successVersion.SetActive(false); // hide the success version at the start
+        }
         originalPosition = transform.position;
         originalRotation = transform.rotation;
 
@@ -35,42 +38,16 @@ public class FoodController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         colliders = GetComponentsInChildren<Collider>();
 
-        // Find shopping list controller if we don't have it yet
-        if (shoppingList == null)
-        {
-            shoppingList = FindFirstObjectByType<ShoppingListController>();
-        }
-
         // Check current food status
         if (SceneNavigator.Instance != null)
         {
             FoodStatus status = SceneNavigator.Instance.GetFoodStatus(foodType);
 
+            // wrong choice == not chosen food here in food waste room will all go back to their original position and resume functionality
+            // so only right choice food will be made non-interactable
             if (status == FoodStatus.RightChoiceChosen)
             {
-                if (!isCorrectFood)
-                {
-                    MakeNonInteractable();
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }
-            }
-            else if (status == FoodStatus.WrongChoiceChosen)
-            {
-                // If a wrong choice was made:
-                // - If this is the correct food, keep it visible but make it non-interactable
-                // - If this is an incorrect food too, hide it
-                if (isCorrectFood)
-                {
-                    MakeNonInteractable();
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }
-                return;
+                StartCoroutine(UpdateCorrectChoice());
             }
         }
 
@@ -104,24 +81,27 @@ public class FoodController : MonoBehaviour
     private void OnSelectExit(SelectExitEventArgs args)
     {
         Vector3 foodPos = transform.position;
-        Vector3 cartPos = CorrectPlaceToThrow.position;
+        Vector3 correctPos = CorrectPlaceToThrow.position;
 
         float xThreshold = 0.5f;
         float zThreshold = 0.5f;
 
-        bool isAboveCartXZ = Mathf.Abs(foodPos.x - cartPos.x) <= xThreshold &&
-                             Mathf.Abs(foodPos.z - cartPos.z) <= zThreshold;
+        bool isAboveCorrectXZ = Mathf.Abs(foodPos.x - correctPos.x) <= xThreshold &&
+                             Mathf.Abs(foodPos.z - correctPos.z) <= zThreshold;
 
-        if (isAboveCartXZ)
+        Vector3 incorrectPlace = IncorrectPlaceToThrow.position;
+
+        bool isAboveIncorrectXZ = Mathf.Abs(foodPos.x - incorrectPlace.x) <= xThreshold &&
+                             Mathf.Abs(foodPos.z - incorrectPlace.z) <= zThreshold;
+
+
+        if (isAboveCorrectXZ)
         {
-            if (isCorrectFood)
-            {
-                StartCoroutine(HandleCorrectDropSequence());
-            }
-            else
-            {
-                HandleIncorrectDrop();
-            }
+            StartCoroutine(HandleCorrectDropSequence());
+        }
+        else if (isAboveIncorrectXZ)
+        {
+            HandleIncorrectDrop();
         }
         else
         {
@@ -134,25 +114,39 @@ public class FoodController : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
 
-        // Mark this food with the correct choice status
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
 
-        // Immediately disable all incorrect food options
-        DisableIncorrectFoodOption();
-        SetSuccessUIText(foodType);
-        SuccessUIManager.Instance?.HideSuccessUI();
-        SuccessUIManager.Instance?.ShowSuccessUI();
+        // SetSuccessUIText(foodType);
+        // SuccessUIManager.Instance?.HideSuccessUI();
+        // SuccessUIManager.Instance?.ShowSuccessUI();
 
         yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
-        Destroy(gameObject);
+        
+        StartCoroutine(UpdateCorrectChoice());
     }
 
-    private void SetSuccessUIText(FoodItem type)
-    {
-        string successMessage;
-        switch (type)
-        {
+    private IEnumerator UpdateCorrectChoice() {
+        MakeNonInteractable();
+        // and customise based on the food type
+        if (foodType == FoodItem.Eggshells) {
+            Destroy(gameObject); // end up in the blender
+        } else if (foodType == FoodItem.ChickenBone) {
+            Destroy(gameObject); // will end up in trash bin
+        } else if (foodType == FoodItem.CoffeeGrounds) {
+            // stay on the tray but not interactable
+            // update original position and rotation to the current position and rotation
+            Destroy(gameObject); // destroy the game object
+            successVersion.SetActive(true); // show the success version
+
+        } 
+    }
+
+//    private void SetSuccessUIText(FoodItem type)
+//    {
+//        string successMessage;
+//        switch (type)
+/*         {
             case FoodItem.Tomatoes:
                 successMessage = @"Millions of perfectly edible fruits and vegetables are wasted every year just because they look imperfect. 
 By choosing the 'imperfect' tomato, you’ve helped prevent food waste and saved valuable resources like water, energy, and labor.";
@@ -175,42 +169,14 @@ Plastic waste lingers for centuries, but your choice today helps create a cleane
         }
         successUIText.text = successMessage;
 
-    }
-
-    private void DisableIncorrectFoodOption()
-    {
-        // Find all food controllers in the scene
-        FoodController[] allFoodControllers = FindObjectsByType<FoodController>(FindObjectsSortMode.None);
-
-        // Disable the food controller that are not correct
-        foreach (FoodController foodController in allFoodControllers)
-        {
-            if (foodController.foodType == foodType && !foodController.isCorrectFood)
-            {
-                foodController.MakeNonInteractable();
-            }
-        }
-    }
+    } */
 
     private void HandleIncorrectDrop()
     {
-        // Mark this food with the wrong choice status
-        SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.WrongChoiceChosen);
-
-        // Make all correct food items visible but non-interactable
-        FoodController[] allFoodControllers = FindObjectsByType<FoodController>(FindObjectsSortMode.None);
-        foreach (FoodController foodController in allFoodControllers)
-        {
-            if (foodController != this && foodController.isCorrectFood)
-            {
-                foodController.MakeNonInteractable();
-            }
-        }
-
         // Destroy this wrong food item
         Destroy(gameObject);
 
-        SceneNavigator.Instance?.GoToDisasterRoom(eventType);
+        SceneNavigator.Instance?.GoToDisasterFWRoom(eventType);
     }
 
     private IEnumerator ReturnToOriginalPosition()
