@@ -136,6 +136,7 @@ public class FoodController : MonoBehaviour
 
         // Mark this food with the correct choice status
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
+        ResultsManager.Instance?.UpdateScore(foodType, true);
 
         // Immediately disable all incorrect food options
         DisableIncorrectFoodOption();
@@ -196,6 +197,7 @@ Plastic waste lingers for centuries, but your choice today helps create a cleane
     {
         // Mark this food with the wrong choice status
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.WrongChoiceChosen);
+        ResultsManager.Instance?.UpdateScore(foodType, false);
 
         // Make all correct food items visible but non-interactable
         FoodController[] allFoodControllers = FindObjectsByType<FoodController>(FindObjectsSortMode.None);

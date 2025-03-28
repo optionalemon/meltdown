@@ -113,6 +113,8 @@ public class FWFoodController : MonoBehaviour
     private IEnumerator HandleCorrectDropSequence()
     {
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
+        ResultsManager.Instance?.UpdateScore(foodType, true);
+
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
 
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
@@ -185,6 +187,7 @@ public class FWFoodController : MonoBehaviour
         // Destroy this wrong food item
         Destroy(gameObject);
 
+        ResultsManager.Instance?.UpdateScore(foodType, false);
         SceneNavigator.Instance?.GoToDisasterFWRoom(eventType);
     }
 
