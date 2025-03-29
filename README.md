@@ -25,8 +25,9 @@ Preparations:
 <img width="730" alt="Screenshot 2025-03-29 at 23 16 05" src="https://github.com/user-attachments/assets/6c258ee6-138d-4c4d-b0b7-a31da73883ad" />
 
 8) Plug in your VR device. If you are using Windows, you can link your Meta Quest to the Meta Quest Link application with this [guide](https://www.meta.com/help/quest/509273027107091/).
-10) If you are using windows:
+10) If you are using Windows:
     - Press the 'Play' button in Unity after linking up your Meta Quest with the Meta Quest Link app.
+    
     Otherwise:
     1) Under `File > Build Profiles > Platform Settings`, find `Run Device` and set it to your Meta Quest.
     2) Click `Build and Run` and enjoy the game!
