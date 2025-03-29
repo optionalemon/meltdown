@@ -81,9 +81,11 @@ public class DoorController : MonoBehaviour
         {
             case TeleportationType.Supermarket:
                 SceneNavigator.Instance.GoToSupermarket();
+                ResultsManager.Instance.StartTrackingSupermarketTime();
                 break;
             case TeleportationType.FoodWasteRoom:
                 SceneNavigator.Instance.GoToFoodWasteRoom();
+                // ResultsManager.Instance.StartTrackingFoodWasteTime();
                 break;
             case TeleportationType.TutorialRoom:
                 SceneNavigator.Instance.GoToTutorialRoom();

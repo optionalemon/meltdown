@@ -13,7 +13,8 @@ public enum FoodItem
     Eggs,
     ChickenBone,
     Eggshells,
-    CoffeeGrounds
+    CoffeeGrounds,
+    VegFruitWaste
 }
 
 public enum FoodStatus
@@ -34,6 +35,13 @@ public enum DisasterEventType
     WRONG_EGGSHELLS,
     WRONG_VEG_FRUIT_WASTE
 }
+
+public enum ScoreType
+{
+    SUPERMARKET,
+    FOODWASTE
+}
+
 public class SceneNavigator : MonoBehaviour
 {
     // Event for food status changes
@@ -132,7 +140,8 @@ public class SceneNavigator : MonoBehaviour
 
     public FoodStatus GetFoodStatus(FoodItem food)
     {
-        if (foodStatusDict.ContainsKey(food)) {
+        if (foodStatusDict.ContainsKey(food))
+        {
             return foodStatusDict[food];
         }
         return FoodStatus.NotDone;
@@ -238,7 +247,8 @@ public class SceneNavigator : MonoBehaviour
             SoundManager.Instance.StopSound();
             SoundManager.Instance.PlayBackgroundMusic(SoundType.END_MUSIC, true);
             SoundManager.Instance.PlaySound(SoundType.END_AUDIO, 2f);
-        } else if (sceneRef == foodWasteRoomScene)
+        }
+        else if (sceneRef == foodWasteRoomScene)
         {
             if (!foodwasteEntryTime.HasValue)
             {
