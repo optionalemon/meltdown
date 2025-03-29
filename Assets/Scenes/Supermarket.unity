@@ -345,9 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 0
   foodType: 2
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 3
   successUIText: {fileID: 0}
@@ -5476,9 +5474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 0
   foodType: 1
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 4
   successUIText: {fileID: 0}
@@ -10122,9 +10118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 1
   foodType: 0
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 0
   successUIText: {fileID: 1768484317}
@@ -11708,9 +11702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 1
   foodType: 1
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 0
   successUIText: {fileID: 1768484317}
@@ -12460,6 +12452,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 42724c433a0984616a93b3c558b63f09, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1561624507}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 42724c433a0984616a93b3c558b63f09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1561624508}
   m_SourcePrefab: {fileID: 100100000, guid: 42724c433a0984616a93b3c558b63f09, type: 3}
 --- !u!1 &1561624499 stripped
 GameObject:
@@ -12478,13 +12473,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1411942656}
   m_Colliders:
   - {fileID: 239454035}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 0
+  m_SelectMode: 1
   m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
@@ -12641,6 +12636,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   scanOrigin: {fileID: 1561624506}
+--- !u!114 &1561624508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561624499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDistance: 0.5
+  leftHand: {fileID: 1246378671}
+  rightHand: {fileID: 639410809}
 --- !u!1 &1578342095
 GameObject:
   m_ObjectHideFlags: 0
@@ -13711,9 +13721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 0
   foodType: 3
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 1
   successUIText: {fileID: 0}
@@ -15653,10 +15661,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: {fileID: 1823303473}
-  isOpen: 1
   teleportType: 1
   ConfirmAlertDialog: {fileID: 1592033029}
   confirmationModal: {fileID: 1592033030}
+  isDoorHovered: 0
   triggerAction: {fileID: -3349846813110206475, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &1823303472
 MonoBehaviour:
@@ -16651,9 +16659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 1
   foodType: 2
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 0
   successUIText: {fileID: 1768484317}
@@ -17289,9 +17295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 0
   foodType: 0
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 2
   successUIText: {fileID: 0}
@@ -17827,9 +17831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrectFood: 1
   foodType: 3
-  isMeantForTrashBin: 0
   CorrectPlaceToThrow: {fileID: 1849203725}
-  IncorrectPlaceToThrow: {fileID: 1849203725}
   confettiPrefab: {fileID: 873027640}
   eventType: 0
   successUIText: {fileID: 1768484317}
