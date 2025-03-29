@@ -39,6 +39,9 @@ Preparations:
 - [Skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014)
 - [Shopping cart](https://www.cgtrader.com/free-3d-models/food/miscellaneous/shopping-cart-d526e425-c861-44a9-866e-0d7ba41c68d7 )
 - [Supermarket shelves](https://assetstore.unity.com/packages/3d/props/furniture/fresh-shelving-267101)
+- [Eggs](https://www.cgtrader.com/free-3d-models/animals/other/3-brown-eggs)
+- [UI Samples](https://assetstore.unity.com/packages/essentials/ui-samples-25468)
+- [Disaster Room Lava Samples](https://assetstore.unity.com/packages/vfx/shaders/lava-flowing-shader-33635?srsltid=AfmBOoohwLEn4EW_2Hb1A2ZrAtUoCpASGz_WQ-wJXsNQufY_KLYCdpUz)
 
 ## Controls
 
