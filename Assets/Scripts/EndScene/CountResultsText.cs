@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -30,11 +31,11 @@ public class CountResultsText : MonoBehaviour
         {
             if (scoreType == ScoreType.SUPERMARKET)
             {
-                float? time = ResultsManager.Instance.GetSupermarketDuration();
+                TimeSpan? time = ResultsManager.Instance.GetSupermarketDuration();
                 if (time.HasValue)
                 {
-                    int minutes = Mathf.FloorToInt(time.Value / 60);
-                    int seconds = Mathf.FloorToInt(time.Value % 60);
+                    int minutes = time.Value.Minutes;
+                    int seconds = time.Value.Seconds;
                     stats.text = $"{minutes:D2}m {seconds:D2}s";
                 }
                 else
@@ -44,12 +45,12 @@ public class CountResultsText : MonoBehaviour
             }
             else if (scoreType == ScoreType.FOODWASTE)
             {
-                float? time = ResultsManager.Instance.GetFoodWasteDuration();
+                TimeSpan? time = ResultsManager.Instance.GetFoodWasteDuration();
                 if (time.HasValue)
                 {
 
-                    int minutes = Mathf.FloorToInt(time.Value / 60);
-                    int seconds = Mathf.FloorToInt(time.Value % 60);
+                    int minutes = time.Value.Minutes;
+                    int seconds = time.Value.Seconds;
                     stats.text = $"{minutes:D2}m {seconds:D2}s";
                 }
                 else
