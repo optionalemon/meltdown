@@ -17,6 +17,8 @@ public class ResultsManager : MonoBehaviour
 
     private float foodWasteDuration;
 
+    private bool isSupermarketTimeInitialized = false;
+
     public static ResultsManager Instance
     {
         get { return instance; }
@@ -47,7 +49,12 @@ public class ResultsManager : MonoBehaviour
 
     public void StartTrackingSupermarketTime()
     {
-        supermarketStartTime = Time.time;
+        if (!isSupermarketTimeInitialized)
+        {
+            supermarketStartTime = Time.time;
+            isSupermarketTimeInitialized = true;
+        }
+
     }
 
     public void StopTrackingSupermarketTime()
