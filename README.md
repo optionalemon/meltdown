@@ -15,19 +15,29 @@ Preparations:
 2) Open the project in Unity 6.40.1f.
 3) Once the project has loaded, under `Project`, go to the `Assets folder > Scenes` and drag the `Tutorial Room` to the Hierarchy.
 4) Go to `Edit > Project Settings > XR Plug-in Management > OpenXR`. Set `Render Mode` to `Multi-pass`.
-<img width="952" alt="Screenshot 2025-03-29 at 23 07 48" src="https://github.com/user-attachments/assets/ea4694cc-9414-4ca1-a9ab-089c38e0a7f0"/>
+<img width="730" alt="Screenshot 2025-03-29 at 23 07 48" src="https://github.com/user-attachments/assets/ea4694cc-9414-4ca1-a9ab-089c38e0a7f0"/>
 
 5) Then, under `Edit > Project Settings > Player`, ensure that `Active Input Handling` is set to  either `Both` or `Input System Package (New)`. Please restart your Unity if you are prompted to do so.
-<img width="957" alt="Screenshot 2025-03-29 at 23 08 45" src="https://github.com/user-attachments/assets/74330ffb-556a-4745-a3be-4878f88ca381" />
+<img width="730" alt="Screenshot 2025-03-29 at 23 08 45" src="https://github.com/user-attachments/assets/74330ffb-556a-4745-a3be-4878f88ca381" />
 
 6) Now, go to `File > Build Profiles`. Click on `Android` and click `Switch Platform`. If you are prompted to restart your Unity, please do so.
 7) Ensure that there is the `Active` green box beside the `Android` option, as shown in the screenshot below.
 <img width="730" alt="Screenshot 2025-03-29 at 23 16 05" src="https://github.com/user-attachments/assets/6c258ee6-138d-4c4d-b0b7-a31da73883ad" />
 
-8) Plug in your VR device. Under `File > Build Profiles > Platform Settings`, find `Run Device` and set it to your Meta Quest.
-9) Click `Build and Run` and enjoy the game!
+8) Plug in your VR device. If you are using Windows, you can link your Meta Quest to the Meta Quest Link application with this [guide](https://www.meta.com/help/quest/509273027107091/).
+10) If you are using windows:
+    - Press the 'Play' button in Unity after linking up your Meta Quest with the Meta Quest Link app.
+    Otherwise:
+    1) Under `File > Build Profiles > Platform Settings`, find `Run Device` and set it to your Meta Quest.
+    2) Click `Build and Run` and enjoy the game!
 
 ## Assets Used
+- [Scanner prefab](https://sketchfab.com/3d-models/sci-fi-scanner-00eee2c153504f67b5aa579c4b82dbd8)
+- [VR Hands](https://drive.google.com/file/d/1B5qxgxok_B-kHy8oZSXuYUtrMea-BA1t/view)
+- [Supermarket Room Template](https://www.cgtrader.com/free-3d-models/exterior/cityscape/convenience-store-f3032ffa-c5e7-4af4-af97-d9c912c7718a)
+- [Skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014)
+- [Shopping cart](https://www.cgtrader.com/free-3d-models/food/miscellaneous/shopping-cart-d526e425-c861-44a9-866e-0d7ba41c68d7 )
+- [Supermarket shelves](https://assetstore.unity.com/packages/3d/props/furniture/fresh-shelving-267101)
 
 ## Controls
 
