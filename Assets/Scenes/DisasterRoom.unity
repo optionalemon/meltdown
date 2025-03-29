@@ -618,10 +618,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: {fileID: 664672057}
-  isOpen: 1
   teleportType: 0
   ConfirmAlertDialog: {fileID: 679467944}
   confirmationModal: {fileID: 679467946}
+  isDoorHovered: 1
   triggerAction: {fileID: -3349846813110206475, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &664672057
 MonoBehaviour:

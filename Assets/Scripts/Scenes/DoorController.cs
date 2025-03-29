@@ -6,10 +6,10 @@ using System.Collections;
 public class DoorController : MonoBehaviour
 {
     [SerializeField] private UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable interactable;
-    [SerializeField] private bool isOpen;
     [SerializeField] private TeleportationType teleportType;
     [SerializeField] private GameObject ConfirmAlertDialog;
     [SerializeField] private ConfirmationModal confirmationModal;
+    [SerializeField] private bool isDoorHovered = false;
 
     public InputActionReference triggerAction;
 
@@ -39,18 +39,33 @@ public class DoorController : MonoBehaviour
         {
             ConfirmAlertDialog.SetActive(false);
         }
+        
+        // Add hover events to the interactable
+        if (interactable != null && isDoorHovered == false)
+        {
+            interactable.hoverEntered.AddListener(OnHoverEnter);
+            interactable.hoverExited.AddListener(OnHoverExit);
+        }
+    }
+
+    private void OnHoverEnter(HoverEnterEventArgs args)
+    {
+        isDoorHovered = true;
+    }
+
+    private void OnHoverExit(HoverExitEventArgs args)
+    {
+        isDoorHovered = false;
     }
 
     void Update()
     {
-        if (triggerAction.action.triggered)
+        // Only check trigger action if the door is being hovered over
+        if (isDoorHovered && triggerAction.action.triggered)
         {
-            if (isOpen)
+            if (ConfirmAlertDialog != null)
             {
-                if (ConfirmAlertDialog != null)
-                {
-                    ConfirmAlertDialog.SetActive(true);
-                }
+                ConfirmAlertDialog.SetActive(true);
             }
         }
     }
