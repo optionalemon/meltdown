@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class ResultsManager : MonoBehaviour
 {
@@ -9,13 +10,13 @@ public class ResultsManager : MonoBehaviour
 
     private Dictionary<FoodItem, bool> scores = new Dictionary<FoodItem, bool>();
 
-    private float supermarketStartTime;
+    // private float supermarketStartTime;
 
-    private float supermarketDuration;
+    private TimeSpan? supermarketDuration;
 
-    private float foodWasteStartTime;
+    // private float foodWasteStartTime;
 
-    private float foodWasteDuration;
+    private TimeSpan? foodWasteDuration;
 
     private bool isSupermarketTimeInitialized = false;
 
@@ -47,37 +48,22 @@ public class ResultsManager : MonoBehaviour
         return new Dictionary<FoodItem, bool>(scores); // Return a copy to prevent modification
     }
 
-    public void StartTrackingSupermarketTime()
-    {
-        if (!isSupermarketTimeInitialized)
-        {
-            supermarketStartTime = Time.time;
-            isSupermarketTimeInitialized = true;
-        }
-
-    }
-
     public void StopTrackingSupermarketTime()
     {
-        supermarketDuration = Time.time - supermarketStartTime;
+        supermarketDuration = DateTime.Now - SceneNavigator.supermarketEntryTime;
     }
 
-    public float? GetSupermarketDuration()
+    public TimeSpan? GetSupermarketDuration()
     {
         return supermarketDuration;
     }
 
-    public void StartTrackingFoodWasteTime()
-    {
-        foodWasteStartTime = Time.time;
-    }
-
     public void StopTrackingFoodWasteTime()
     {
-        foodWasteDuration = Time.time - foodWasteStartTime;
+        foodWasteDuration = DateTime.Now - SceneNavigator.foodwasteEntryTime;
     }
 
-    public float? GetFoodWasteDuration()
+    public TimeSpan? GetFoodWasteDuration()
     {
         return foodWasteDuration;
     }
