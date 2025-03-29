@@ -257,7 +257,6 @@ public class SceneNavigator : MonoBehaviour
             }
             SoundManager.Instance.StopBackgroundMusic(true);
             SoundManager.Instance.StopSound();
-            SoundManager.Instance.PlaySound(SoundType.FOODWASTE_ANNOUNCEMENT, 2f);
             SoundManager.Instance.PlayBackgroundMusic(SoundType.FOODWASTE_MUSIC, true);
             if (!isFoodWasteRoomAnnouncementPlayed)
             {
@@ -275,9 +274,7 @@ public class SceneNavigator : MonoBehaviour
                 subtitleDisplay?.SetSubtitles(subtitleLines);
                 subtitleDisplay?.ShowSubtitles();
 
-                AudioClip announcementClip = SoundManager.Instance.GetSoundClip(SoundType.FOODWASTE_ANNOUNCEMENT);
-                if (announcementClip != null)
-                    yield return new WaitForSeconds(announcementClip.length + 0.5f);
+                SoundManager.Instance.PlaySound(SoundType.FOODWASTE_ANNOUNCEMENT, 2f);
             }
         }
         else
