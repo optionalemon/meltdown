@@ -52,6 +52,7 @@ public class SceneNavigator : MonoBehaviour
     [SerializeField] private SceneReference tutorialRoomScene;
     [SerializeField] private SceneReference disasterRoomScene;
     [SerializeField] private SceneReference disasterFWRoomScene;
+    [SerializeField] private SceneReference transitionScene;
     [SerializeField] private SceneReference endScene;
     [SerializeField] private GameObject subtitleCanvasPrefab;
 
@@ -93,7 +94,6 @@ public class SceneNavigator : MonoBehaviour
     };
 
     private static bool isAnnouncementPlayed;
-    private static bool isFoodWasteRoomAnnouncementPlayed;
 
     private void Awake()
     {
@@ -105,6 +105,11 @@ public class SceneNavigator : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void GoToTransitionScene()
+    {
+        LoadScene(transitionScene);
     }
 
     public void GoToSupermarket()
@@ -250,17 +255,11 @@ public class SceneNavigator : MonoBehaviour
         }
         else if (sceneRef == foodWasteRoomScene)
         {
-            if (!foodwasteEntryTime.HasValue)
+            if (!foodwasteEntryTime.HasValue) // first time entering the food waste room
             {
                 foodwasteEntryTime = DateTime.Now;
                 Debug.Log("User entered food waste room at: " + foodwasteEntryTime.Value);
-            }
-            SoundManager.Instance.StopBackgroundMusic(true);
-            SoundManager.Instance.StopSound();
-            SoundManager.Instance.PlayBackgroundMusic(SoundType.FOODWASTE_MUSIC, true);
-            if (!isFoodWasteRoomAnnouncementPlayed)
-            {
-                isFoodWasteRoomAnnouncementPlayed = true;
+
                 currentSubtitleCanvas = Instantiate(subtitleCanvasPrefab);
 
                 SubtitleLine[] subtitleLines = new SubtitleLine[]
@@ -275,7 +274,20 @@ public class SceneNavigator : MonoBehaviour
                 subtitleDisplay?.ShowSubtitles();
 
                 SoundManager.Instance.PlaySound(SoundType.FOODWASTE_ANNOUNCEMENT, 2f);
+            } else {
+                SoundManager.Instance.StopBackgroundMusic(true);
+                SoundManager.Instance.PlayBackgroundMusic(SoundType.FOODWASTE_MUSIC, true);
             }
+        }
+        else if (sceneRef == transitionScene)
+        {
+            SoundManager.Instance.StopBackgroundMusic(true);
+            SoundManager.Instance.StopSound();
+            SoundManager.Instance.PlayBackgroundMusic(SoundType.FOODWASTE_MUSIC, true);
+
+            // wait for 4 seconds and then load the next scene
+            yield return new WaitForSeconds(6f);
+            LoadScene(foodWasteRoomScene);
         }
         else
         {
