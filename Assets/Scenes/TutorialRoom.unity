@@ -474,9 +474,10 @@ GameObject:
   - component: {fileID: 17330800}
   - component: {fileID: 17330804}
   - component: {fileID: 17330803}
-  - component: {fileID: 17330802}
   - component: {fileID: 17330801}
-  m_Layer: 0
+  - component: {fileID: 17330805}
+  - component: {fileID: 17330806}
+  m_Layer: 6
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,27 +584,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!135 &17330802
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17330799}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &17330803
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -657,6 +637,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17330799}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &17330805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17330799}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.0000037252903}
+--- !u!114 &17330806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17330799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f246a28228e97a34b82a0ecb69cf60da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanningMaterial: {fileID: 2100000, guid: ff2f42e1397fe8a479eea2973e848d92, type: 2}
+  scanLabels:
+  - {fileID: 1640285981}
 --- !u!114 &66693284 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1518874850766506369, guid: 88246f8e9c3765d49be8da34eca3c630, type: 3}
@@ -1034,7 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 163097136}
   - component: {fileID: 163097137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SF Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1587,7 @@ MonoBehaviour:
   scanConeAngle: 30
   foodLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   scanOrigin: {fileID: 277243949}
 --- !u!114 &277243953
 MonoBehaviour:
@@ -2125,7 +2141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 354821970}
   - component: {fileID: 354821971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SF Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2957,7 +2973,7 @@ GameObject:
   - component: {fileID: 507487889}
   - component: {fileID: 507487891}
   - component: {fileID: 507487890}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 'Background '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3517,9 +3533,10 @@ GameObject:
   - component: {fileID: 632340913}
   - component: {fileID: 632340917}
   - component: {fileID: 632340916}
-  - component: {fileID: 632340915}
   - component: {fileID: 632340914}
-  m_Layer: 0
+  - component: {fileID: 632340918}
+  - component: {fileID: 632340919}
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3626,27 +3643,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!135 &632340915
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632340912}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &632340916
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3700,6 +3696,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632340912}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &632340918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632340912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.0000037252903}
+--- !u!114 &632340919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632340912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f246a28228e97a34b82a0ecb69cf60da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanningMaterial: {fileID: 2100000, guid: 5a7ca585a9b2b3c4587125916713263d, type: 2}
+  scanLabels:
+  - {fileID: 1951400493}
 --- !u!1 &647087958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,7 +3844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 689628399}
   - component: {fileID: 689628400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SF Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6779,7 +6811,7 @@ GameObject:
   - component: {fileID: 1435107050}
   - component: {fileID: 1435107052}
   - component: {fileID: 1435107051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6915,7 +6947,7 @@ GameObject:
   - component: {fileID: 1436017241}
   - component: {fileID: 1436017243}
   - component: {fileID: 1436017242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7809,7 +7841,7 @@ GameObject:
   - component: {fileID: 1640285985}
   - component: {fileID: 1640285984}
   - component: {fileID: 1640285983}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ScanLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8160,7 +8192,7 @@ GameObject:
   - component: {fileID: 1803595023}
   - component: {fileID: 1803595025}
   - component: {fileID: 1803595024}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8920,7 +8952,7 @@ GameObject:
   - component: {fileID: 1951400497}
   - component: {fileID: 1951400496}
   - component: {fileID: 1951400495}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ScanLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9088,7 +9120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009267664}
   - component: {fileID: 2009267665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SF Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9177,7 +9209,7 @@ GameObject:
   - component: {fileID: 2016089404}
   - component: {fileID: 2016089406}
   - component: {fileID: 2016089405}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9415,7 +9447,7 @@ GameObject:
   - component: {fileID: 2065694759}
   - component: {fileID: 2065694761}
   - component: {fileID: 2065694760}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 'Background '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
