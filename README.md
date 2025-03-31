@@ -42,6 +42,7 @@ Preparations:
 - [Eggs](https://www.cgtrader.com/free-3d-models/animals/other/3-brown-eggs)
 - [UI Samples](https://assetstore.unity.com/packages/essentials/ui-samples-25468)
 - [Disaster Room Lava Samples](https://assetstore.unity.com/packages/vfx/shaders/lava-flowing-shader-33635?srsltid=AfmBOoohwLEn4EW_2Hb1A2ZrAtUoCpASGz_WQ-wJXsNQufY_KLYCdpUz)
+- Voiceovers: Supermarket & Food Waste Subtitles [[Hume.ai](https://www.hume.ai/)]; Disaster Room: [[ElevenLabs' Matilda](https://elevenlabs.io/)]
 
 ## Controls
 
