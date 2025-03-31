@@ -55,6 +55,22 @@ Chicken? As low as 3 kg. That’s over 30 times less pollution. Beef isn’t jus
 But there’s a simple choice: switch to chicken and slash your impact. Eat wisely—or watch the planet pay the price.
 ";
                 break;
+            case DisasterEventType.WRONG_COFFEE_GROUNDS:
+                disasterRoomHeader.text = "WARNING: COFFEE GROUND WASTE";
+                disasterRoomDescription.text = @"Coffee grounds are not garbage; they're a valuable resource! Instead of tossing them, use them as a natural odor absorber, a nutrient-rich fertilizer, or even a gentle exfoliant for skin care. They can also repel pests in your garden and help scrub tough stains. By sending them to the landfill, you’re wasting a material that could benefit your home and the environment. Don’t add to pollution—reuse, repurpose, or compost them for a greener planet!";
+                break;
+            case DisasterEventType.WRONG_EGGSHELLS:
+                disasterRoomHeader.text = "WARNING: EGGSHELL WASTE POLLUTION";
+                disasterRoomDescription.text = @"Eggshells are rich in calcium, and instead of being discarded into landfills, they could be repurposed into protein powder. But now, they will decompose in a landfill, releasing harmful methane into the atmosphere, a potent greenhouse gas. 
+
+Landfills are one of the largest sources of methane emissions. Compost your eggshells, or reuse them for gardening, to fight climate change!";
+                break;
+            case DisasterEventType.WRONG_VEG_FRUIT_WASTE:
+                disasterRoomHeader.text = "WARNING: FOOD WASTE IMPACT";
+                disasterRoomDescription.text = @"Fruit and vegetable scraps should be composted or reused, not tossed away. Composting enriches soil and cuts waste, while citrus peels can be soaked in vinegar to make natural cleaners. Some scraps, like onion skins and potato peels, have antibacterial properties too. 
+
+Throwing your fruit and vegetable away adds to landfill overflow, methane emissions, and soil depletion. Healthy soil means stronger plants and a healthier planet!";
+                break;
             default:
                 disasterRoomHeader.text = "You are a menace to society lol";
                 disasterRoomDescription.text = @"You are probably the reason why we are so doomed right now.
