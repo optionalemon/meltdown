@@ -13,10 +13,10 @@ public class FoodWasteCompletionChecker : MonoBehaviour
     {
         // Ensure the object starts disabled
         gameObject.SetActive(false);
-        
+
         // Subscribe to the food status changed event
         SceneNavigator.OnFoodStatusChanged += OnFoodStatusChanged;
-        
+
         // Check current status in case items are already completed
         CheckCompletionStatus();
     }
@@ -54,6 +54,7 @@ public class FoodWasteCompletionChecker : MonoBehaviour
         if (allCompleted && !gameObject.activeSelf)
         {
             gameObject.SetActive(true);
+            ResultsManager.Instance.StopTrackingFoodWasteTime();
             Debug.Log("All food waste room items have been processed! GameObject activated.");
             ActivateSpecialLightOnly();
         }
