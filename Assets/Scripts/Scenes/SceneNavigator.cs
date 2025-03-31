@@ -244,6 +244,15 @@ public class SceneNavigator : MonoBehaviour
                 case DisasterEventType.WRONG_MEAT:
                     SoundManager.Instance.PlaySound(SoundType.WRONG_MEAT_AUDIO, 2f);
                     break;
+                case DisasterEventType.WRONG_COFFEE_GROUNDS:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_COFFEE_GROUNDS_AUDIO, 2f);
+                    break;
+                case DisasterEventType.WRONG_EGGSHELLS:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_EGGSHELLS_AUDIO, 2f);
+                    break;
+                case DisasterEventType.WRONG_VEG_FRUIT_WASTE:
+                    SoundManager.Instance.PlaySound(SoundType.WRONG_VEG_FRUIT_WASTE_AUDIO, 2f);
+                    break;
                 default:
                     break;
             }
@@ -276,7 +285,9 @@ public class SceneNavigator : MonoBehaviour
                 subtitleDisplay?.ShowSubtitles();
 
                 SoundManager.Instance.PlaySound(SoundType.FOODWASTE_ANNOUNCEMENT, 2f);
-            } else {
+            }
+            else
+            {
                 SoundManager.Instance.StopBackgroundMusic(true);
                 SoundManager.Instance.PlayBackgroundMusic(SoundType.FOODWASTE_MUSIC, true);
             }
