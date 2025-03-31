@@ -131,6 +131,7 @@ public class SceneNavigator : MonoBehaviour
 
     public void GoToEndScene()
     {
+        ResultsManager.Instance.SaveDataToFile();
         LoadScene(endScene);
     }
 
@@ -289,6 +290,7 @@ public class SceneNavigator : MonoBehaviour
             else
             {
                 SoundManager.Instance.StopBackgroundMusic(true);
+                SoundManager.Instance.StopSound();
                 SoundManager.Instance.PlayBackgroundMusic(SoundType.FOODWASTE_MUSIC, true);
             }
         }
