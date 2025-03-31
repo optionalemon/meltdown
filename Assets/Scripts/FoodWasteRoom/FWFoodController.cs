@@ -127,22 +127,16 @@ public class FWFoodController : MonoBehaviour
     private IEnumerator UpdateCorrectChoice()
     {
         MakeNonInteractable();
-        // and customise based on the food type
-        if (foodType == FoodItem.Eggshells)
-        {
-            Destroy(gameObject); // end up in the blender
-        }
-        else if (foodType == FoodItem.ChickenBone)
-        {
-            Destroy(gameObject); // will end up in trash bin
-        }
-        else if (foodType == FoodItem.CoffeeGrounds)
+        if (foodType == FoodItem.CoffeeGrounds)
         {
             // stay on the tray but not interactable
             // update original position and rotation to the current position and rotation
             Destroy(gameObject); // destroy the game object
             successVersion.SetActive(true); // show the success version
 
+        } else
+        {
+            Destroy(gameObject); 
         }
         // added to fix compile error
         yield return null;

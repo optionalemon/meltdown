@@ -13,7 +13,8 @@ public class CountResultsText : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int score = 0;
+        ResultsManager.Instance.SaveDataToFile();
+        int score;
         if (!isTimeStats)
         {
             if (scoreType == ScoreType.SUPERMARKET)
@@ -68,7 +69,7 @@ public class CountResultsText : MonoBehaviour
 
     int CountFoodWasteStats()
     {
-        return ResultsManager.Instance.GetSpecificCategoryCount(new FoodItem[] { FoodItem.ChickenBone, FoodItem.Eggshells, FoodItem.CoffeeGrounds, FoodItem.VegFruitWaste });
+        return ResultsManager.Instance.GetSpecificCategoryCount(new FoodItem[] { FoodItem.ChickenBone, FoodItem.Eggshells, FoodItem.CoffeeGrounds, FoodItem.VegFruitSlices });
     }
 
 

@@ -14,7 +14,7 @@ public enum FoodItem
     ChickenBone,
     Eggshells,
     CoffeeGrounds,
-    VegFruitWaste
+    VegFruitSlices
 }
 
 public enum FoodStatus
@@ -77,7 +77,7 @@ public class SceneNavigator : MonoBehaviour
         { FoodItem.ChickenBone, FoodStatus.NotDone },
         { FoodItem.Eggshells, FoodStatus.NotDone },
         { FoodItem.CoffeeGrounds, FoodStatus.NotDone },
-        { FoodItem.VegFruitWaste, FoodStatus.NotDone }
+        { FoodItem.VegFruitSlices, FoodStatus.NotDone }
     };
 
     public static FoodItem[] supermarketFoodItems = new FoodItem[]
@@ -92,7 +92,7 @@ public class SceneNavigator : MonoBehaviour
         FoodItem.ChickenBone,
         FoodItem.Eggshells,
         FoodItem.CoffeeGrounds,
-        FoodItem.VegFruitWaste
+        FoodItem.VegFruitSlices
     };
 
     private static bool isAnnouncementPlayed;

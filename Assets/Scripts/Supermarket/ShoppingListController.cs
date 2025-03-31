@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +19,6 @@ public class ShoppingListController : MonoBehaviour
     [SerializeField] private Color defaultColor = Color.blue;
     [SerializeField] private Color correctColor = Color.green;
     [SerializeField] private Color wrongColor = Color.red;
-
-    private string saveFileName = "supermarket_data.csv";
 
     private Dictionary<FoodItem, Image> foodImages = new Dictionary<FoodItem, Image>();
     private bool allChoicesMade = false;
@@ -145,67 +140,7 @@ public class ShoppingListController : MonoBehaviour
 
             ResultsManager.Instance?.StopTrackingSupermarketTime();
 
-            // Save the data to a file
-            SaveDataToFile();
-
             ActivateSpecialLightOnly();
-        }
-    }
-
-
-    public void SaveDataToFile()
-    {
-        try
-        {
-            // Create the directory if it doesn't exist
-            string directory = Path.Combine(Directory.GetParent(Application.dataPath).FullName, "Data");
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-
-            // Full path with platform-safe directory separators
-            string filePath = Path.Combine(directory, saveFileName);
-            bool fileExists = File.Exists(filePath);
-
-            // Create a StringBuilder to build our CSV content
-            StringBuilder sb = new StringBuilder();
-
-            // If file doesn't exist, add header row first
-            if (!fileExists)
-            {
-                sb.AppendLine("tomatoes,meat,eggs,milk,total,time_seconds,entry_timestamp,save_timestamp");
-            }
-
-            // Calculate elapsed time since entering supermarket
-            TimeSpan? elapsedTime = null;
-            if (SceneNavigator.supermarketEntryTime != null)
-            {
-                elapsedTime = DateTime.Now - SceneNavigator.supermarketEntryTime.Value;
-            }
-
-            // Add the current data to the CSV, 0 if the food item is wrong and 1 if it's correct
-            int tomatoes = SceneNavigator.Instance.GetFoodStatus(FoodItem.Tomatoes) == FoodStatus.RightChoiceChosen ? 1 : 0;
-            int meat = SceneNavigator.Instance.GetFoodStatus(FoodItem.Meat) == FoodStatus.RightChoiceChosen ? 1 : 0;
-            int eggs = SceneNavigator.Instance.GetFoodStatus(FoodItem.Eggs) == FoodStatus.RightChoiceChosen ? 1 : 0;
-            int milk = SceneNavigator.Instance.GetFoodStatus(FoodItem.Milk) == FoodStatus.RightChoiceChosen ? 1 : 0;
-
-            int total = tomatoes + meat + eggs + milk;
-
-            string entryTime = SceneNavigator.supermarketEntryTime.HasValue ? SceneNavigator.supermarketEntryTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "N/A";
-            string saveTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string timeSeconds = elapsedTime.HasValue ? elapsedTime.Value.TotalSeconds.ToString("F1") : "N/A";
-
-            sb.AppendLine($"{tomatoes},{meat},{eggs},{milk},{total},{timeSeconds},{entryTime},{saveTime}");
-
-            // Append to file (create if doesn't exist)
-            File.AppendAllText(filePath, sb.ToString());
-
-            Debug.Log($"Data successfully saved to {filePath}");
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Failed to save data: {e.Message}");
         }
     }
 
