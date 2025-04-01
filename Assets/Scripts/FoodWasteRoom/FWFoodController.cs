@@ -154,6 +154,12 @@ public class FWFoodController : MonoBehaviour
             Destroy(gameObject); // destroy the game object
             successVersion.SetActive(true); // show the success version
 
+        } else if (foodType == FoodItem.Eggshells || foodType == FoodItem.VegFruitSlices)
+        {
+            Destroy(gameObject); // destroy the game object
+            Destroy(CorrectPlaceToThrow);
+            successVersion.SetActive(true); // show the success version
+
         } else
         {
             Destroy(gameObject); 
