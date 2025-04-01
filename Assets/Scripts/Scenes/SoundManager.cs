@@ -19,7 +19,8 @@ public enum SoundType
     FOODWASTE_MUSIC,
     WRONG_COFFEE_GROUNDS_AUDIO,
     WRONG_EGGSHELLS_AUDIO,
-    WRONG_VEG_FRUIT_WASTE_AUDIO
+    WRONG_VEG_FRUIT_WASTE_AUDIO,
+    DOOR_OPEN_VOICE
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -95,11 +96,11 @@ public class SoundManager : MonoBehaviour
         {
             bgmAudioSource.volume = 0f;
             bgmAudioSource.Play();
-            fadeCoroutine = StartCoroutine(FadeAudioSource(bgmAudioSource, fadeInDuration, 1f));
+            fadeCoroutine = StartCoroutine(FadeAudioSource(bgmAudioSource, fadeInDuration, 0.8f));
         }
         else
         {
-            bgmAudioSource.volume = 1f;
+            bgmAudioSource.volume = 0.8f;
             bgmAudioSource.Play();
         }
     }
