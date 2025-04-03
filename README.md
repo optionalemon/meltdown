@@ -1,7 +1,10 @@
 
 # Climate Change XR Education Escape Room: Meltdown
 
-  
+<p align="center">
+  <img src="/ReadmeImages/meltdown.gif" />
+</p>
+
 
 ## Table of Contents
 - [Climate Change XR Education Escape Room: Meltdown](#climate-change-xr-education-escape-room-meltdown)
@@ -108,30 +111,32 @@ Otherwise:
 
 New to VR? 🚀 Don't fret! 😊 Our 🎮 Tutorial Room's got you covered—feel free to play around and get used to the controls! 🎯✨
 
+<p align="center">
 <img  src="/ReadmeImages/tutorialroom.gif" width="30%"/>
-
+</p>
   
 
 ### 🚀 Moving Around: Teleportation &amp; Smooth Locomotion
 
 Walk or teleport—move your way! 🏃‍♂️✨ Prefer smooth gliding? No worries! A vignette effect helps reduce motion sickness, so you stay comfy while exploring! 🌿😊
   
+<p align="center">
 <img  src="https://media.giphy.com/media/erTP0l9VUGZNHPVj16/giphy.gif" width="30%">
-
-*Teleportation*
-
 <img  src="https://media.giphy.com/media/hLej8lW0gHOYZEz44Q/giphy.gif" width="30%">
+</p>
 
-*Smooth Locomotion with Vignette*  
+<p align="center">
+<b>Left</b>: Teleportation | <b>Right</b>: Smooth Locomotion with Vignette
+</p>
 
 ### 🤲 Grabbing Objects
 
 Get hands-on! 👐 Pick up objects as you interact with the world around you!
 
   
-
+<p align="center">
 <img  src="/ReadmeImages/grab1.gif" width="30%"/>
-
+</p>
   
 
 ### 🔍 Scanning Objects with an Educational Overlay
@@ -139,9 +144,9 @@ Get hands-on! 👐 Pick up objects as you interact with the world around you!
 Scan &amp; learn! 📲✨ Point at food objects to reveal fun, bite-sized info in a sleek, eye-catching overlay!
 
   
-
+<p align="center">
 <img  src="https://media.giphy.com/media/1gr327VD6MYFvaBsoZ/giphy.gif" width="30%"/>
-
+</p>
   
   
 
@@ -150,9 +155,9 @@ Scan &amp; learn! 📲✨ Point at food objects to reveal fun, bite-sized info i
 Posters aren’t just for looks! 🖼️ Get up close and interact with them for surprises, hints, and extra knowledge!
 
   
-
+<p align="center">
 <img  src="https://media.giphy.com/media/mUbMcMv1EwZXbrS8nr/giphy.gif" width="30%"/>
-
+</p>
   
 
 ### 🎶 Background Music &amp; Audio
@@ -165,9 +170,9 @@ Immerse yourself! 🎧✨ A carefully crafted soundtrack and realistic audio eff
 
 Never miss a thing! 💬 Subtitles ensure you catch every word, so you can focus on solving puzzles &amp; saving the planet! 🌍
   
-
+<p align="center">
 <img  src="/ReadmeImages/subtitles.gif" width="30%"/>
-
+</p>
   
 
 ## Team Members
