@@ -104,15 +104,14 @@ New to VR? 🚀 Don't fret! 😊 Our 🎮 Tutorial Room's got you covered—feel
 ### 🚀 Moving Around: Teleportation &amp; Smooth Locomotion
 
 Walk or teleport—move your way! 🏃‍♂️✨ Prefer smooth gliding? No worries! A vignette effect helps reduce motion sickness, so you stay comfy while exploring! 🌿😊
-
   
-
 <img  src="https://media.giphy.com/media/erTP0l9VUGZNHPVj16/giphy.gif" width="30%">
+
+*Teleportation*
+
 <img  src="https://media.giphy.com/media/hLej8lW0gHOYZEz44Q/giphy.gif" width="30%">
 
-<p><i><b>Left</b>: Teleportation | <b>Right</b>: Smooth Locomotion with Vignette</i></p>
-
-  
+*Smooth Locomotion with Vignette*  
 
 ### 🤲 Grabbing Objects
 
@@ -120,7 +119,7 @@ Get hands-on! 👐 Pick up objects as you interact with the world around you!
 
   
 
-<img  src="https://media.giphy.com/media/NUtRLm5sFLVky8PK8L/giphy.gif" width="30%"/>
+<img  src="/ReadmeImages/grab1.gif" width="30%"/>
 
   
 
@@ -154,10 +153,9 @@ Immerse yourself! 🎧✨ A carefully crafted soundtrack and realistic audio eff
 ### 🔊 Missed the Audio? No Problem!
 
 Never miss a thing! 💬 Subtitles ensure you catch every word, so you can focus on solving puzzles &amp; saving the planet! 🌍
-
   
 
-<img  src="https://media.giphy.com/media/wBCNefWjGxqTv63pNv/giphy.gif" width="30%"/>
+<img  src="/ReadmeImages/subtitles.gif" width="30%"/>
 
   
 
