@@ -4,12 +4,23 @@
   
 
 ## Table of Contents
-
-  
+- [Climate Change XR Education Escape Room: Meltdown](#climate-change-xr-education-escape-room-meltdown)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Setup](#setup)
+  - [Assets Used](#assets-used)
+  - [Key Features](#key-features)
+    - [🥽 Tutorial Room](#-tutorial-room)
+    - [🚀 Moving Around: Teleportation & Smooth Locomotion](#-moving-around-teleportation--smooth-locomotion)
+    - [🤲 Grabbing Objects](#-grabbing-objects)
+    - [🔍 Scanning Objects with an Educational Overlay](#-scanning-objects-with-an-educational-overlay)
+    - [📜 Interacting with Posters](#-interacting-with-posters)
+    - [🎶 Background Music & Audio](#-background-music--audio)
+    - [🔊 Missed the Audio? No Problem!](#-missed-the-audio-no-problem)
+  - [Team Members](#team-members)
+  - [Feedback](#feedback)
 
 ## About
-
-  
 
 Meltdown is a VR escape room that teaches players about climate change in an interactive way :earth_asia:. Players go through a typical day, making choices that affect the environment ♻️. Pick the eco-friendly options to keep the world safe :white_check_mark: — but make bad choices, and you’ll see the consequences unfold! :warning: It’s a fun and eye-opening way to learn how our daily actions impact the planet :seedling:.
 
