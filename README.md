@@ -97,7 +97,9 @@ Otherwise:
 
 New to VR? 🚀 Don't fret! 😊 Our 🎮 Tutorial Room's got you covered—feel free to play around and get used to the controls! 🎯✨
 
-![Imgur Image](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG5xZ3RoYW42OGlod3JtOWd1ZjByZzIxMWs5bHQ2eG11enBwaWk1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NjmAMdFjIv90MorSCo/giphy.gif)
+<img  src="/ReadmeImages/tutorialroom.gif" width="30%"/>
+
+  
 
 ### 🚀 Moving Around: Teleportation &amp; Smooth Locomotion
 
