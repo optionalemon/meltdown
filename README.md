@@ -44,11 +44,62 @@ Preparations:
 - [Disaster Room Lava Samples](https://assetstore.unity.com/packages/vfx/shaders/lava-flowing-shader-33635?srsltid=AfmBOoohwLEn4EW_2Hb1A2ZrAtUoCpASGz_WQ-wJXsNQufY_KLYCdpUz)
 - Voiceovers: [hume.ai](https://www.hume.ai/) & [ElevenLabs](https://elevenlabs.io/)
 
-## Controls
+## Key features
 
-## How to Play
+### 🥽 Tutorial Room
+New to VR? 🚀 Don't fret! 😊 Our 🎮 Tutorial Room's got you covered—feel free to play around and get used to the controls! 🎯✨
+
+<div style="text-align:center">
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnUwcDFtd3FqN2V4cm5saHExM3Ruazk3Mm1wMG10ZGw1bmN1bTBveCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NjmAMdFjIv90MorSCo/giphy.gif" style="width: 35%; text-align: center;">
+</div>
+
+### 🚀 Moving Around: Teleportation &amp; Smooth Locomotion
+Walk or teleport—move your way! 🏃‍♂️✨ Prefer smooth gliding? No worries! A vignette effect helps reduce motion sickness, so you stay comfy while exploring! 🌿😊
+
+<div style="text-align:center">
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2M3cHc4OWVvcmFsMnllNno0cGxpN2p5MGk3d2hodXNjMjIwcGZxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/erTP0l9VUGZNHPVj16/giphy.gif" style="width: 35%; text-align: center; margin-right: 2px">
+<img src="https://media.giphy.com/media/hLej8lW0gHOYZEz44Q/giphy.gif" style="width: 35%; text-align: center; margin-left: 2px">
+<p><i><b>Left</b>: Teleportation | <b>Right</b>: Smooth Locomotion with Vignette</i></p>
+</div>
+
+### 🤲 Grabbing Objects
+Get hands-on! 👐 Pick up objects as you interact with the world around you!
+
+<div style="text-align:center">
+<img src="https://media.giphy.com/media/NUtRLm5sFLVky8PK8L/giphy.gif" style="width: 35%; text-align: center;">
+</div>
+
+
+### 🔍 Scanning Objects with an Educational Overlay
+Scan &amp; learn! 📲✨ Point at food objects to reveal fun, bite-sized info in a sleek, eye-catching overlay!
+
+<div style="text-align:center">
+<img src="https://media.giphy.com/media/1gr327VD6MYFvaBsoZ/giphy.gif" style="width: 35%; text-align: center;">
+</div>
+
+
+### 📜 Interacting with Posters
+Posters aren’t just for looks! 🖼️ Get up close and interact with them for surprises, hints, and extra knowledge!
+
+<div style="text-align:center">
+<img src="https://media.giphy.com/media/mUbMcMv1EwZXbrS8nr/giphy.gif" style="width: 35%; text-align: center;">
+</div>
+
+### 🎶 Background Music &amp; Audio
+Immerse yourself! 🎧✨ A carefully crafted soundtrack and realistic audio effects bring the world to life—setting the perfect mood for your adventure! 🌱🔊
+
+### 🔊 Missed the Audio? No Problem!
+Never miss a thing! 💬 Subtitles ensure you catch every word, so you can focus on solving puzzles &amp; saving the planet! 🌍
+
+<div style="text-align:center">
+<img src="https://media.giphy.com/media/wBCNefWjGxqTv63pNv/giphy.gif" style="width: 35%; text-align: center;">
+</div>
 
 ## Team Members
+- Acacia Chong Xiao Xuan
+- Florentiana Yuwono
+- Melissa Anastasia Harijanto
+- Xu Yi
 
 ## Feedback
 
