@@ -49,20 +49,19 @@ Preparations:
 ### 🥽 Tutorial Room
 New to VR? 🚀 Don't fret! 😊 Our 🎮 Tutorial Room's got you covered—feel free to play around and get used to the controls! 🎯✨
 
-<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnUwcDFtd3FqN2V4cm5saHExM3Ruazk3Mm1wMG10ZGw1bmN1bTBveCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NjmAMdFjIv90MorSCo/giphy.gif" style="width: 35%; text-align: center;">
+<img src="https://media.giphy.com/media/NjmAMdFjIv90MorSCo/giphy.gif" style="width: 35%; text-align: center;">
 
 ### 🚀 Moving Around: Teleportation &amp; Smooth Locomotion
 Walk or teleport—move your way! 🏃‍♂️✨ Prefer smooth gliding? No worries! A vignette effect helps reduce motion sickness, so you stay comfy while exploring! 🌿😊
 
-<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2M3cHc4OWVvcmFsMnllNno0cGxpN2p5MGk3d2hodXNjMjIwcGZxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/erTP0l9VUGZNHPVj16/giphy.gif" style="width: 35%; text-align: center; margin-right: 2px">
-<img src="https://media.giphy.com/media/hLej8lW0gHOYZEz44Q/giphy.gif" style="width: 35%; text-align: center; margin-left: 2px">
+<img src="https://media.giphy.com/media/erTP0l9VUGZNHPVj16/giphy.gif" width="35%">
+<img src="https://media.giphy.com/media/hLej8lW0gHOYZEz44Q/giphy.gif" width="35%">
 <p><i><b>Left</b>: Teleportation | <b>Right</b>: Smooth Locomotion with Vignette</i></p>
 
 ### 🤲 Grabbing Objects
 Get hands-on! 👐 Pick up objects as you interact with the world around you!
 
-<img src="https://media.giphy.com/media/NUtRLm5sFLVky8PK8L/giphy.gif" style="width: 35%; text-align: center;">
-
+<img src="https://media.giphy.com/media/NUtRLm5sFLVky8PK8L/giphy.gif" width="35%">
 
 ### 🔍 Scanning Objects with an Educational Overlay
 Scan &amp; learn! 📲✨ Point at food objects to reveal fun, bite-sized info in a sleek, eye-catching overlay!
