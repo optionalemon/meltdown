@@ -2,7 +2,7 @@
 # Climate Change XR Education Escape Room: Meltdown
 
 <p align="center">
-  <img src="/ReadmeImages/meltdown.gif" width="80%" />
+  <img src="/ReadmeImages/meltdown.gif" width="70%" />
 </p>
 
 
