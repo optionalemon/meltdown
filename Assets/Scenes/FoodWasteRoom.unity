@@ -4309,7 +4309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1854290143}
   rightHand: {fileID: 1854290142}
 --- !u!114 &968628674
@@ -5902,7 +5902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1854290143}
   rightHand: {fileID: 1854290142}
 --- !u!114 &1186329974
@@ -6596,7 +6596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1854290143}
   rightHand: {fileID: 1854290142}
 --- !u!4 &1305446629
@@ -7651,7 +7651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1854290143}
   rightHand: {fileID: 1854290142}
 --- !u!114 &1547762259

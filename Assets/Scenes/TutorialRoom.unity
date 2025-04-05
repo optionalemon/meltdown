@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a565a8efbdbadae48a3c2d7bcae3f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 491935619}
   rightHand: {fileID: 491935618}
 --- !u!1 &336426667
@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a565a8efbdbadae48a3c2d7bcae3f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 491935619}
   rightHand: {fileID: 491935618}
 --- !u!1 &935332634
@@ -6831,6 +6831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactables Sample
       objectReference: {fileID: 0}
+    - target: {fileID: 1084091470699946731, guid: 6821e1b7f44d8c44b8a2ba02f37309d5, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2991896912978869755, guid: 6821e1b7f44d8c44b8a2ba02f37309d5, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6875,9 +6879,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5178052650083227068, guid: 6821e1b7f44d8c44b8a2ba02f37309d5, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6263395680885754751, guid: 6821e1b7f44d8c44b8a2ba02f37309d5, type: 3}
       propertyPath: m_PermittedDisplacementAxes
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559198441471240594, guid: 6821e1b7f44d8c44b8a2ba02f37309d5, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7534,7 +7546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a565a8efbdbadae48a3c2d7bcae3f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 491935619}
   rightHand: {fileID: 491935618}
 --- !u!1 &1889292356

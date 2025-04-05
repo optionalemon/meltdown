@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!224 &34921246 stripped
@@ -6191,7 +6191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &550974970
@@ -10990,7 +10990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &1206370405
@@ -12628,7 +12628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &1456229017 stripped
@@ -14722,7 +14722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &1637294034
@@ -17665,7 +17665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &1930842400 stripped
@@ -18281,7 +18281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &2015616463
@@ -18839,7 +18839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357aff7714ed5844e84c5b93740f65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 0.2
+  grabDistance: 0.5
   leftHand: {fileID: 1246378671}
   rightHand: {fileID: 639410809}
 --- !u!1 &2071742805
