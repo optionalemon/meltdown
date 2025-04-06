@@ -55,27 +55,19 @@ Preparations:
 
 <img  width="730"  alt="Screenshot 2025-03-29 at 23 08 45"  src="https://github.com/user-attachments/assets/74330ffb-556a-4745-a3be-4878f88ca381" />
 
-  
+6) Plug in your VR device.
 
-6) Now, go to `File > Build Profiles`. Click on `Android` and click `Switch Platform`. If you are prompted to restart your Unity, please do so.
+7) If you are using Windows, you can link your Meta Quest to the Meta Quest Link application with this [guide](https://www.meta.com/help/quest/509273027107091/). Press the 'Play' button in Unity after linking up your Meta Quest with the Meta Quest Link app.
 
-7) Ensure that there is the `Active` green box beside the `Android` option, as shown in the screenshot below.
+Otherwise:
+1) Go to `File > Build Profiles`. Click on `Android` and click `Switch Platform`. If you are prompted to restart your Unity, please do so.
+2) Ensure that there is the `Active` green box beside the `Android` option, as shown in the screenshot below.
 
 <img  width="730"  alt="Screenshot 2025-03-29 at 23 16 05"  src="https://github.com/user-attachments/assets/6c258ee6-138d-4c4d-b0b7-a31da73883ad" />
 
-  
+3) Under `File > Build Profiles > Platform Settings`, find `Run Device` and set it to your Meta Quest.
 
-8) Plug in your VR device. If you are using Windows, you can link your Meta Quest to the Meta Quest Link application with this [guide](https://www.meta.com/help/quest/509273027107091/).
-
-10) If you are using Windows:
-
-- Press the 'Play' button in Unity after linking up your Meta Quest with the Meta Quest Link app.
-
-Otherwise:
-
-1) Under `File > Build Profiles > Platform Settings`, find `Run Device` and set it to your Meta Quest.
-
-2) Click `Build and Run` and enjoy the game!
+4) Click `Build and Run` and enjoy the game!
 
   
 
