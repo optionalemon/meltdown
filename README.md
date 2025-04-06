@@ -43,7 +43,7 @@ Preparations:
 
 2) Open the project in Unity 6.40.1f.
 
-3) Once the project has loaded, under `Project`, go to the `Assets folder > Scenes` and drag the `Tutorial Room` to the Hierarchy.
+3) Once the project has loaded, under `Project`, go to the `Assets folder > Scenes` and drag the `StartScene` to the Hierarchy.
 
 4) Go to `Edit > Project Settings > XR Plug-in Management > OpenXR`. Set `Render Mode` to `Multi-pass`.
 
