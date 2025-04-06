@@ -110,6 +110,7 @@ public class FWFoodController : MonoBehaviour
             bool isAboveAnyIncorrect = false;
             foreach (Transform incorrectPlacement in IncorrectPlacements)
             {
+                if (incorrectPlacement == null) continue;
                 Vector3 incorrectPos = incorrectPlacement.position;
                 if (Mathf.Abs(foodPos.x - incorrectPos.x) <= xThreshold &&
                     Mathf.Abs(foodPos.z - incorrectPos.z) <= zThreshold)
