@@ -17,7 +17,6 @@ public class DoorController : MonoBehaviour
     {
         Supermarket,
         FoodWasteRoom,
-        TutorialRoom,
         DisasterRoom,
         EndScene,
         TransitionScene
@@ -100,9 +99,6 @@ public class DoorController : MonoBehaviour
                 break;
             case TeleportationType.FoodWasteRoom:
                 SceneNavigator.Instance.GoToFoodWasteRoom();
-                break;
-            case TeleportationType.TutorialRoom:
-                SceneNavigator.Instance.GoToTutorialRoom();
                 break;
             case TeleportationType.DisasterRoom:
                 SceneNavigator.Instance.GoToDisasterRoom(DisasterEventType.NONE);

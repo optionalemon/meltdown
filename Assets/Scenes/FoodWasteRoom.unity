@@ -8700,7 +8700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: {fileID: 1848277471}
-  teleportType: 4
+  teleportType: 3
   ConfirmAlertDialog: {fileID: 1057573755}
   confirmationModal: {fileID: 1057573756}
   isDoorHovered: 0

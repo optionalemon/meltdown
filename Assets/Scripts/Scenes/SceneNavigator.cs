@@ -47,9 +47,9 @@ public class SceneNavigator : MonoBehaviour
     // Event for food status changes
     public static event Action<FoodItem, FoodStatus> OnFoodStatusChanged;
 
+    [SerializeField] private SceneReference tutorialScene;
     [SerializeField] private SceneReference supermarketScene;
     [SerializeField] private SceneReference foodWasteRoomScene;
-    [SerializeField] private SceneReference tutorialRoomScene;
     [SerializeField] private SceneReference disasterRoomScene;
     [SerializeField] private SceneReference disasterFWRoomScene;
     [SerializeField] private SceneReference transitionScene;
@@ -124,9 +124,9 @@ public class SceneNavigator : MonoBehaviour
         LoadScene(foodWasteRoomScene);
     }
 
-    public void GoToTutorialRoom()
+    public void GoToTutorialScene()
     {
-        LoadScene(tutorialRoomScene);
+        LoadScene(tutorialScene);
     }
 
     public void GoToEndScene()

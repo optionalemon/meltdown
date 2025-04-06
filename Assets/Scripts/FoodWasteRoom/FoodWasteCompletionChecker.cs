@@ -69,6 +69,13 @@ public class FoodWasteCompletionChecker : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         SoundManager.Instance.PlaySound(SoundType.DOOR_OPEN_VOICE, 2f);
+         // Display subtitle for 2 seconds
+        SubtitleLine[] subtitleLines = new SubtitleLine[]
+        {
+            new SubtitleLine { text = "The door is open.", startTime = 0.0f, duration = 2.0f },
+            new SubtitleLine { text = "You can now go to the next room.", startTime = 2.0f, duration = 2.0f }
+        };
+        SceneNavigator.Instance?.ShowSubtitleCanvas(subtitleLines);
     }
 
     private IEnumerator TransitionToSpecialLight()

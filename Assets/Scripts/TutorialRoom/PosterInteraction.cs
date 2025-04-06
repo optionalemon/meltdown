@@ -68,16 +68,6 @@ public class PosterInteraction : MonoBehaviour
         isHovered = false;
     }
 
-    // private void OnTriggerPressed(SelectEnterEventArgs args)
-    // {
-
-    //     if (overlay != null) overlay.SetActive(true);
-
-    //     interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor;
-    //     if (interactor != null) TriggerHapticFeedback(interactor, clickHapticIntensity);
-
-    // }
-
     void Update()
     {
         if (isHovered && triggerAction.action.triggered)

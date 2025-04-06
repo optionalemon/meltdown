@@ -20,7 +20,9 @@ public enum SoundType
     WRONG_COFFEE_GROUNDS_AUDIO,
     WRONG_EGGSHELLS_AUDIO,
     WRONG_VEG_FRUIT_WASTE_AUDIO,
-    DOOR_OPEN_VOICE
+    DOOR_OPEN_VOICE,
+    MENU_CLICK,
+    START_MUSIC
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -60,6 +62,7 @@ public class SoundManager : MonoBehaviour
             bgmAudioSource.loop = true;
             bgmAudioSource.playOnAwake = false;
             bgmAudioSource.volume = 0f; // Start with volume at 0 for fade-in
+            PlayBackgroundMusic(SoundType.START_MUSIC, false); // Start with the start music
         }
         else
         {
