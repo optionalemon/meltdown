@@ -85,6 +85,7 @@ public class SuccessUIManager : MonoBehaviour
 
         // Hide the UI
         successUI.SetActive(false);
+        SoundManager.Instance?.StopSound();
         if (closeButton != null)
         {
             closeButton.gameObject.SetActive(false);
