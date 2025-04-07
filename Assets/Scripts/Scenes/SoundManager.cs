@@ -26,7 +26,8 @@ public enum SoundType
     CORRECT_EGGS,
     CORRECT_MEAT,
     CORRECT_MILK,
-    CORRECT_TOMATO
+    CORRECT_TOMATO,
+    TUTORIAL_ANNOUNCEMENT
 }
 
 [RequireComponent(typeof(AudioSource))]
