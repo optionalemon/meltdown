@@ -169,7 +169,7 @@ public class FoodController : MonoBehaviour
                 SoundManager.Instance?.PlaySound(SoundType.CORRECT_MEAT, 2f);
                 break;
             case FoodItem.Milk:
-                SoundManager.Instance?.PlaySound(SoundType.CORRECT_EGGS, 2f);
+                SoundManager.Instance?.PlaySound(SoundType.CORRECT_MILK, 2f);
                 break;
             case FoodItem.Tomatoes:
                 SoundManager.Instance?.PlaySound(SoundType.CORRECT_TOMATO, 2f);
