@@ -149,6 +149,7 @@ public class FoodController : MonoBehaviour
         SoundManager.Instance?.StopSound();
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
+         yield return new WaitForSeconds(1.0f);
 
         // Mark this food with the correct choice status
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
