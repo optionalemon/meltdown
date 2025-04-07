@@ -14,11 +14,11 @@ public class FoodController : MonoBehaviour
     public Transform CorrectPlaceToThrow;
     public GameObject confettiPrefab;
     public DisasterEventType eventType;
-    
+
     // Add this new field for the placement location
     [Header("Correct Item Placement")]
     public Transform correctItemFinalPosition; // Assign this in the inspector to the target position
-    
+
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
@@ -146,6 +146,7 @@ public class FoodController : MonoBehaviour
 
     private IEnumerator HandleCorrectDropSequence()
     {
+        SoundManager.Instance?.StopSound();
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
 
@@ -159,9 +160,25 @@ public class FoodController : MonoBehaviour
         SuccessUIManager.Instance?.HideSuccessUI();
         SuccessUIManager.Instance?.ShowSuccessUI();
 
+        switch (foodType)
+        {
+            case FoodItem.Eggs:
+                SoundManager.Instance?.PlaySound(SoundType.CORRECT_EGGS, 2f);
+                break;
+            case FoodItem.Meat:
+                SoundManager.Instance?.PlaySound(SoundType.CORRECT_MEAT, 2f);
+                break;
+            case FoodItem.Milk:
+                SoundManager.Instance?.PlaySound(SoundType.CORRECT_EGGS, 2f);
+                break;
+            case FoodItem.Tomatoes:
+                SoundManager.Instance?.PlaySound(SoundType.CORRECT_TOMATO, 2f);
+                break;
+        }
+
         yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
-        
+
         // Instead of destroying, move the object to the target position
         if (correctItemFinalPosition != null)
         {
@@ -173,16 +190,16 @@ public class FoodController : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    
+
     private IEnumerator MoveToFinalPosition()
     {
         if (rb != null) rb.isKinematic = true;
-        
+
         float duration = 0.5f;
         float elapsed = 0f;
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
-        
+
         while (elapsed < duration)
         {
             float t = elapsed / duration;
@@ -192,11 +209,11 @@ public class FoodController : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        
+
         // Ensure exact final position and rotation
         transform.position = correctItemFinalPosition.position;
         transform.rotation = correctItemFinalPosition.rotation;
-        
+
         // Make the object non-interactable in its final position
         MakeNonInteractable();
     }

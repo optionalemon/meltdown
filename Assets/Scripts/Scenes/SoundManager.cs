@@ -22,7 +22,11 @@ public enum SoundType
     WRONG_VEG_FRUIT_WASTE_AUDIO,
     DOOR_OPEN_VOICE,
     MENU_CLICK,
-    START_MUSIC
+    START_MUSIC,
+    CORRECT_EGGS,
+    CORRECT_MEAT,
+    CORRECT_MILK,
+    CORRECT_TOMATO
 }
 
 [RequireComponent(typeof(AudioSource))]
