@@ -738,7 +738,11 @@ PrefabInstance:
     - target: {fileID: -5716681864270162303, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
       propertyPath: m_Animation
       value: 
-      objectReference: {fileID: -6817860978217929835, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+      objectReference: {fileID: 4873981333490874974, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+    - target: {fileID: -5716681864270162303, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
       propertyPath: m_LocalScale.x
       value: 42.5755
@@ -799,13 +803,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: fridge_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8519459415178048056, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -24.05079
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470169634}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1617716347}
   m_SourcePrefab: {fileID: 100100000, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
 --- !u!4 &147930750 stripped
 Transform:
@@ -5371,7 +5382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This awesome game is created by these amazing, slaying, gorgeous girlies
+  m_text: This awesome game is created by these amazing, talented, gorgeous girlies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3d28269451ef4e039274678e97128bc, type: 2}
   m_sharedMaterial: {fileID: 3375853729310949523, guid: a3d28269451ef4e039274678e97128bc, type: 2}
@@ -8698,6 +8709,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ec40b66161fcdf5458ccee83032f58c3, type: 3}
   m_PrefabInstance: {fileID: 1852313313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1617716343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+  m_PrefabInstance: {fileID: 147930749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1617716344 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: -5716681864270162303, guid: 8856dbe0a9879694f8c375c54b52101d, type: 3}
+  m_PrefabInstance: {fileID: 147930749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1617716347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617716343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6a8c6f81c3b55ceb9bf22fa435e2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fridgeAnimation: {fileID: 1617716344}
+  animationName: open
 --- !u!4 &1632146721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3067529704754564289, guid: 940a058fada59b548ac93771cd153ceb, type: 3}
