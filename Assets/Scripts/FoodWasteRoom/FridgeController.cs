@@ -1,21 +1,53 @@
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 public class FridgeController : MonoBehaviour
 {
      public Animation fridgeAnimation; // Legacy Animation component
     public string openAnimation = "open";
     public string closeAnimation = "close";
+    [SerializeField] private XRBaseInteractable interactable;
+
+    public InputActionReference triggerAction;
 
     private bool isOpen = false;
-    private bool triggerPreviouslyPressed = false;
+
+    private bool isDoorHovered = false;
+
+        void Awake()
+    {
+        // Get reference to XR Simple Interactable
+        if (interactable == null)
+        {
+            interactable = GetComponent<XRGrabInteractable>();
+        }
+        
+        // Add hover events to the interactable
+        if (interactable != null && isDoorHovered == false)
+        {
+            interactable.hoverEntered.AddListener(OnHoverEnter);
+            interactable.hoverExited.AddListener(OnHoverExit);
+        }
+    }
+
+    private void OnHoverEnter(HoverEnterEventArgs args)
+    {
+        isDoorHovered = true;
+    }
+
+    private void OnHoverExit(HoverExitEventArgs args)
+    {
+        isDoorHovered = false;
+    }
+
 
     void Update()
     {
-        // Check both hands
-        bool triggerPressed = IsTriggerPressed(XRNode.LeftHand) || IsTriggerPressed(XRNode.RightHand);
-
-        if (triggerPressed && !triggerPreviouslyPressed)
+       if (isDoorHovered && triggerAction.action.triggered)
         {
             // Toggle animation
             if (isOpen)
@@ -29,14 +61,5 @@ public class FridgeController : MonoBehaviour
                 isOpen = true;
             }
         }
-
-        triggerPreviouslyPressed = triggerPressed;
-    }
-
-    bool IsTriggerPressed(XRNode hand)
-    {
-        InputDevice device = InputDevices.GetDeviceAtXRNode(hand);
-        bool triggerValue;
-        return device.TryGetFeatureValue(CommonUsages.triggerButton, out triggerValue) && triggerValue;
     }
 }
