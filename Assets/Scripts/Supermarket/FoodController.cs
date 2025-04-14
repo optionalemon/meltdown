@@ -149,6 +149,7 @@ public class FoodController : MonoBehaviour
         SoundManager.Instance?.StopSound();
         SoundManager.Instance.PlaySound(SoundType.CORRECT_ITEM_PLACED);
         GameObject confetti = Instantiate(confettiPrefab, transform.position, Quaternion.identity);
+         yield return new WaitForSeconds(1.0f);
 
         // Mark this food with the correct choice status
         SceneNavigator.Instance?.SetFoodStatus(foodType, FoodStatus.RightChoiceChosen);
@@ -159,6 +160,8 @@ public class FoodController : MonoBehaviour
         SetSuccessUIText(foodType);
         SuccessUIManager.Instance?.HideSuccessUI();
         SuccessUIManager.Instance?.ShowSuccessUI();
+
+        yield return new WaitForSeconds(1.0f);
 
         switch (foodType)
         {
@@ -175,8 +178,6 @@ public class FoodController : MonoBehaviour
                 SoundManager.Instance?.PlaySound(SoundType.CORRECT_TOMATO, 2f);
                 break;
         }
-
-        yield return new WaitForSeconds(1.0f);
         Destroy(confetti, 1.0f);
 
         // Instead of destroying, move the object to the target position

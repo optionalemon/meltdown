@@ -225,6 +225,20 @@ public class SceneNavigator : MonoBehaviour
                 SoundManager.Instance.PlayBackgroundMusic(SoundType.SUPERMARKET_MUSIC, true);
             }
 
+        } else if (sceneRef == tutorialScene)
+        {
+            SoundManager.Instance.StopBackgroundMusic(true);
+            SubtitleLine[] subtitleLines = new SubtitleLine[]
+                {
+                    new SubtitleLine { text = "Welcome to the Tutorial Room!", startTime = 0.0f, duration = 1.5f },
+                    new SubtitleLine { text = "Before you begin your escape, make sure to visit all five stations.", startTime = 1.5f, duration = 4.0f },
+                    new SubtitleLine { text = "These stations hold essential information", startTime = 5.5f, duration = 2.5f },
+                    new SubtitleLine { text = "— skip them, and you might not make it out!", startTime = 8.0f, duration = 3.0f },
+                };
+
+                ShowSubtitleCanvas(subtitleLines);
+
+            SoundManager.Instance.PlaySound(SoundType.TUTORIAL_ANNOUNCEMENT, 2f);
         }
         else if (sceneRef == disasterRoomScene || sceneRef == disasterFWRoomScene)
         {
