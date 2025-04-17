@@ -5636,7 +5636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tomato B
+  m_text: Tomato A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d3b025c9ecfb2f43bd9de82aeebf7b8, type: 2}
   m_sharedMaterial: {fileID: 807384476886916338, guid: 3d3b025c9ecfb2f43bd9de82aeebf7b8, type: 2}
