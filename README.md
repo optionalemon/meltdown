@@ -26,8 +26,11 @@
 ## About
 
 Meltdown is a VR escape room that teaches players about climate change in an interactive way :earth_asia:. Players go through a typical day, making choices that affect the environment ♻️. Pick the eco-friendly options to keep the world safe :white_check_mark: — but make bad choices, and you’ll see the consequences unfold! :warning: It’s a fun and eye-opening way to learn how our daily actions impact the planet :seedling:.
- 
+
+We have a paper too — check it out on [arXiv](https://arxiv.org/abs/2504.14324)! :books:
+
 Check out our [STePS exhibition entry](https://uvents.nus.edu.sg/event/26th-steps/module/CS4240/project/6) — we’ve got a poster and a demo video! :movie_camera: :clipboard:
+
 
   
 ## Key features
